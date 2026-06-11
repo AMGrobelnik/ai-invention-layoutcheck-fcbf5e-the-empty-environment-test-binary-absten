@@ -1,0 +1,15 @@
+{
+  "title": "Empty-Environment Test: Bounded ATMS Abstention Paper",
+  "summary": "Generated a 10-page publication-ready LaTeX paper titled 'The Empty-Environment Test: Calibration-Free Selective Precision in Text-to-Logic Reasoning via Bounded ATMS Abstention'. The paper includes all 6 sections (Introduction, Background, Method, Experiments, Discussion, Conclusion) plus abstract and bibliography. All 4 figures were included: fig1_v0.jpg (Two-Layer Pipeline Architecture, figure*, 21:9), fig2_v0.jpg (Assumption-Load Calibration by Stratum, figure*, 21:9), fig3_v0.jpg (Coverage-Weighted Accuracy, figure*, 21:9), fig4_v0.jpg (ATMS vs ProbLog Divergence, figure*, 21:9). BibTeX was hand-crafted from verified bibliography data for all 14 references (Semantic Scholar API was rate-limited). The paper compiled successfully with pdflatex + bibtex (4-pass process). Visual review of all 10 pages confirmed clean layout, proper figure placement, readable text, correct citations displayed, and no overlapping or cut-off content. The paper uses Times font, natbib citations (plainnat style), hyperref with URL support, and proper LaTeX math throughout.",
+  "out_expected_files": {
+    "paper_tex_path": "paper.tex",
+    "paper_pdf_path": "paper.pdf",
+    "references_bib_path": "references.bib",
+    "figure_paths": [
+      "figures/fig1_v0.jpg",
+      "figures/fig2_v0.jpg",
+      "figures/fig3_v0.jpg",
+      "figures/fig4_v0.jpg"
+    ]
+  }
+}

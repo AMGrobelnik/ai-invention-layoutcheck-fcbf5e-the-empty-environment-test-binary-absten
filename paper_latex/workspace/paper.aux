@@ -1,0 +1,78 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{Olausson2023,Pan2023}
+\citation{Olausson2023}
+\citation{Pan2023}
+\citation{Zhang2024}
+\citation{Feng2025}
+\citation{deKleer1986}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The Empty-Environment Test pipeline. L1 grounding maps document spans to atomic facts entering the empty environment. L2 assumption proposal enumerates fuzzy unifications, bridge rules, and scope defaults as weighted ATMS assumptions. The bounded ATMS propagates environment labels (depth cap $d=3$, beam $b=20$); each conclusion receives an assumption-load $\lambda $. Conclusions with $\lambda =0$ are empty-environment certified; those with $\lambda =\infty $ are abstained from. The audit trace (environment DAG) is emitted for every asserted conclusion.}}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:pipeline}{{1}{2}{The Empty-Environment Test pipeline. L1 grounding maps document spans to atomic facts entering the empty environment. L2 assumption proposal enumerates fuzzy unifications, bridge rules, and scope defaults as weighted ATMS assumptions. The bounded ATMS propagates environment labels (depth cap $d=3$, beam $b=20$); each conclusion receives an assumption-load $\lambda $. Conclusions with $\lambda =0$ are empty-environment certified; those with $\lambda =\infty $ are abstained from. The audit trace (environment DAG) is emitted for every asserted conclusion}{figure.1}{}}
+\citation{deKleer1986}
+\citation{deKleer1992}
+\citation{Olausson2023}
+\citation{Pan2023}
+\citation{Zhang2024}
+\citation{Feng2025}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Background}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Assumption-Based Truth Maintenance}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Neuro-Symbolic Text-to-Logic}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Method}{3}{section.3}\protected@file@percent }
+\newlabel{sec:method}{{3}{3}{Method}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Layer 1: Document Grounding}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Layer 2: Assumption Proposal and Bounded ATMS}{3}{subsection.3.2}\protected@file@percent }
+\citation{Zhang2024}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Fraction correct (accuracy) by assumption-load stratum. Load-0 (empty-environment) instances achieve 90.0\% precision [95\% CI: 59.6\%--98.2\%]; load-$\infty $ (not derivable) instances achieve 18.9\% [CI: 9.5\%--34.2\%]. Error bars show 95\% Wilson confidence intervals. The gap between strata drives the method's selective precision. The load-1 stratum ($n=1$) is underpowered and shown with a dashed border.}}{4}{figure.2}\protected@file@percent }
+\newlabel{fig:stratum}{{2}{4}{Fraction correct (accuracy) by assumption-load stratum. Load-0 (empty-environment) instances achieve 90.0\% precision [95\% CI: 59.6\%--98.2\%]; load-$\infty $ (not derivable) instances achieve 18.9\% [CI: 9.5\%--34.2\%]. Error bars show 95\% Wilson confidence intervals. The gap between strata drives the method's selective precision. The load-1 stratum ($n=1$) is underpowered and shown with a dashed border}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Assumption-Load and the Empty-Environment Test}{4}{subsection.3.3}\protected@file@percent }
+\citation{Sinha2019}
+\citation{Weston2015}
+\citation{Clark2020}
+\citation{Tafjord2021}
+\citation{Olausson2023}
+\citation{Pan2023}
+\citation{Galitsky2026}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{5}{section.4}\protected@file@percent }
+\newlabel{sec:experiments}{{4}{5}{Experiments}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Setup}{5}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Main Results}{5}{subsection.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Coverage-weighted accuracy (CWA) as coverage target varies from 10\% to 100\%. At 22.9\% coverage, the ATMS achieves 90.9\% accuracy (dashed vertical line). CoT and LINC at matched 22.9\% coverage achieve 72.7\%; ProbLog achieves 90.9\%. At 10\% coverage, ATMS: 100\%, CoT: 75\%, LINC: 50\%. The random oracle at 22.9\% coverage achieves 41.4\% $\pm $ 12.7\% (shaded band).}}{6}{figure.3}\protected@file@percent }
+\newlabel{fig:coverage}{{3}{6}{Coverage-weighted accuracy (CWA) as coverage target varies from 10\% to 100\%. At 22.9\% coverage, the ATMS achieves 90.9\% accuracy (dashed vertical line). CoT and LINC at matched 22.9\% coverage achieve 72.7\%; ProbLog achieves 90.9\%. At 10\% coverage, ATMS: 100\%, CoT: 75\%, LINC: 50\%. The random oracle at 22.9\% coverage achieves 41.4\% $\pm $ 12.7\% (shaded band)}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces On 36 of 48 instances (75\%) where ATMS and ProbLog disagree, ProbLog is correct on 30 (83.3\%) and ATMS on 6 (16.7\%). The divergence arises primarily because ATMS abstains ($\lambda =\infty $) while ProbLog commits to an answer using independent Bernoulli probabilities. On the 4 instances where ATMS affirmatively answers and ProbLog disagrees, ATMS wins all 4.}}{7}{figure.4}\protected@file@percent }
+\newlabel{fig:divergence}{{4}{7}{On 36 of 48 instances (75\%) where ATMS and ProbLog disagree, ProbLog is correct on 30 (83.3\%) and ATMS on 6 (16.7\%). The divergence arises primarily because ATMS abstains ($\lambda =\infty $) while ProbLog commits to an answer using independent Bernoulli probabilities. On the 4 instances where ATMS affirmatively answers and ProbLog disagrees, ATMS wins all 4}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Ablations}{7}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{7}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Interpretation of Results}{7}{subsection.5.1}\protected@file@percent }
+\citation{Olausson2023}
+\citation{Pan2023}
+\citation{Zhang2024}
+\citation{Feng2025}
+\citation{Galitsky2026}
+\citation{AbbasiYadkori2024}
+\citation{Yang2026}
+\citation{Zhu2023}
+\citation{deKleer1986}
+\citation{deKleer1992}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Related Work}{8}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Limitations}{8}{subsection.5.3}\protected@file@percent }
+\bibdata{references}
+\bibcite{AbbasiYadkori2024}{{1}{2024}{{Abbasi-Yadkori et~al.}}{{Abbasi-Yadkori, Kuzborskij, Stutz, Gy{\"o}rgy, Fisch, Doucet, Beloshapka, Weng, Yang, Szepesv{\'a}ri, Cemgil, and Tomasev}}}
+\bibcite{Clark2020}{{2}{2020}{{Clark et~al.}}{{Clark, Tafjord, and Richardson}}}
+\bibcite{deKleer1986}{{3}{1986}{{de~Kleer}}{{}}}
+\bibcite{deKleer1992}{{4}{1992}{{de~Kleer}}{{}}}
+\bibcite{Feng2025}{{5}{2025}{{Feng et~al.}}{{Feng, Weir, Bostrom, Bayless, Cassel, Chaudhary, Kiesl-Reiter, and Rangwala}}}
+\bibcite{Galitsky2026}{{6}{2026}{{Galitsky}}{{}}}
+\bibcite{Olausson2023}{{7}{2023}{{Olausson et~al.}}{{Olausson, Gu, Lipkin, Zhang, Solar-Lezama, Tenenbaum, and Levy}}}
+\bibcite{Pan2023}{{8}{2023}{{Pan et~al.}}{{Pan, Albalak, Wang, and Wang}}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{9}{section.6}\protected@file@percent }
+\bibcite{Sinha2019}{{9}{2019}{{Sinha et~al.}}{{Sinha, Sodhani, Dong, Pineau, and Hamilton}}}
+\bibcite{Tafjord2021}{{10}{2021}{{Tafjord et~al.}}{{Tafjord, Dalvi, and Clark}}}
+\bibcite{Weston2015}{{11}{2015}{{Weston et~al.}}{{Weston, Bordes, Chopra, and Mikolov}}}
+\bibcite{Yang2026}{{12}{2026}{{Yang et~al.}}{{Yang, Muandet, Caprio, Chau, and Adachi}}}
+\bibcite{Zhang2024}{{13}{2024}{{Zhang et~al.}}{{Zhang, Alomrani, Gu, Zhou, Hu, Wang, Liu, Coates, Zhang, and Hao}}}
+\bibcite{Zhu2023}{{14}{2023}{{Zhu et~al.}}{{Zhu, Xue, Chen, Zhou, Tang, Schuurmans, and Dai}}}
+\bibstyle{plainnat}
+\gdef \@abspage@last{10}

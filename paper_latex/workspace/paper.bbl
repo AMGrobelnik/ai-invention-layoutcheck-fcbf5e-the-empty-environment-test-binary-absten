@@ -1,0 +1,108 @@
+\begin{thebibliography}{14}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abbasi-Yadkori et~al.(2024)Abbasi-Yadkori, Kuzborskij, Stutz,
+  Gy{\"o}rgy, Fisch, Doucet, Beloshapka, Weng, Yang, Szepesv{\'a}ri, Cemgil,
+  and Tomasev]{AbbasiYadkori2024}
+Yasin Abbasi-Yadkori, Ilja Kuzborskij, David Stutz, Andr{\'a}s Gy{\"o}rgy, Adam
+  Fisch, Arnaud Doucet, Ilja Beloshapka, Wei-Hung Weng, Yao Yang, Csaba
+  Szepesv{\'a}ri, Ali~Taylan Cemgil, and Nenad Tomasev.
+\newblock Mitigating {LLM} hallucinations via conformal abstention.
+\newblock \emph{arXiv preprint arXiv:2405.01563}, 2024.
+
+\bibitem[Clark et~al.(2020)Clark, Tafjord, and Richardson]{Clark2020}
+Peter Clark, Oyvind Tafjord, and Kyle Richardson.
+\newblock Transformers as soft reasoners over language.
+\newblock In \emph{Proceedings of the Twenty-Ninth International Joint
+  Conference on Artificial Intelligence (IJCAI)}, pages 3882--3890, 2020.
+
+\bibitem[de~Kleer(1986)]{deKleer1986}
+Johan de~Kleer.
+\newblock An assumption-based {TMS}.
+\newblock \emph{Artificial Intelligence}, 28\penalty0 (2):\penalty0 127--162,
+  1986.
+
+\bibitem[de~Kleer(1992)]{deKleer1992}
+Johan de~Kleer.
+\newblock Focusing on probable diagnoses.
+\newblock In \emph{Proceedings of the Tenth National Conference on Artificial
+  Intelligence (AAAI)}, pages 842--848, 1992.
+
+\bibitem[Feng et~al.(2025)Feng, Weir, Bostrom, Bayless, Cassel, Chaudhary,
+  Kiesl-Reiter, and Rangwala]{Feng2025}
+Yue Feng, Nathaniel Weir, Kaj Bostrom, Sam Bayless, David Cassel, Siddhant
+  Chaudhary, Benjamin Kiesl-Reiter, and Huzefa Rangwala.
+\newblock {VeriCoT}: Neuro-symbolic chain-of-thought validation via logical
+  consistency checks.
+\newblock \emph{arXiv preprint arXiv:2511.04662}, 2025.
+
+\bibitem[Galitsky(2026)]{Galitsky2026}
+Boris Galitsky.
+\newblock Crossing the chasm from {LLM} hallucinations to invention via
+  abduction.
+\newblock In \emph{Proceedings of the AAAI Symposium Series}, 2026.
+
+\bibitem[Olausson et~al.(2023)Olausson, Gu, Lipkin, Zhang, Solar-Lezama,
+  Tenenbaum, and Levy]{Olausson2023}
+Theo~X. Olausson, Alex Gu, Benjamin Lipkin, Cedric~E. Zhang, Armando
+  Solar-Lezama, Joshua Tenenbaum, and Roger Levy.
+\newblock {LINC}: A neurosymbolic approach for logical reasoning by combining
+  language models with first-order logic provers.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 5153--5176, 2023.
+
+\bibitem[Pan et~al.(2023)Pan, Albalak, Wang, and Wang]{Pan2023}
+Liangming Pan, Alon Albalak, Xinyi Wang, and William~Yang Wang.
+\newblock Logic-{LM}: Empowering large language models with symbolic solvers
+  for faithful logical reasoning.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2023}, 2023.
+
+\bibitem[Sinha et~al.(2019)Sinha, Sodhani, Dong, Pineau, and
+  Hamilton]{Sinha2019}
+Koustuv Sinha, Shagun Sodhani, Jin Dong, Joelle Pineau, and William~L.
+  Hamilton.
+\newblock {CLUTRR}: A diagnostic benchmark for inductive reasoning from text.
+\newblock In \emph{Proceedings of the 2019 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 4505--4514, 2019.
+
+\bibitem[Tafjord et~al.(2021)Tafjord, Dalvi, and Clark]{Tafjord2021}
+Oyvind Tafjord, Bhavana Dalvi, and Peter Clark.
+\newblock {ProofWriter}: Generating implications, proofs, and abductive
+  statements over natural language.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  ACL-IJCNLP 2021}, pages 3621--3634, 2021.
+
+\bibitem[Weston et~al.(2015)Weston, Bordes, Chopra, and Mikolov]{Weston2015}
+Jason Weston, Antoine Bordes, Sumit Chopra, and Tomas Mikolov.
+\newblock Towards {AI}-complete question answering: A set of prerequisite toy
+  tasks.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2015.
+
+\bibitem[Yang et~al.(2026)Yang, Muandet, Caprio, Chau, and Adachi]{Yang2026}
+Anqi Yang, Krikamol Muandet, Michele Caprio, Siu~Lun Chau, and Masaki Adachi.
+\newblock Verbalizing {LLM}'s higher-order uncertainty via imprecise
+  probabilities.
+\newblock \emph{arXiv preprint arXiv:2603.10396}, 2026.
+
+\bibitem[Zhang et~al.(2024)Zhang, Alomrani, Gu, Zhou, Hu, Wang, Liu, Coates,
+  Zhang, and Hao]{Zhang2024}
+Genglin Zhang, Mohammad~A. Alomrani, Hang Gu, Jianye Zhou, Yichao Hu, Bing
+  Wang, Qiwei Liu, Mark Coates, Yuhao Zhang, and Jianye Hao.
+\newblock Extracting and following paths for robust relational reasoning with
+  large language models.
+\newblock \emph{Transactions on Machine Learning Research}, 2024.
+
+\bibitem[Zhu et~al.(2023)Zhu, Xue, Chen, Zhou, Tang, Schuurmans, and
+  Dai]{Zhu2023}
+Zhaocheng Zhu, Yuan Xue, Xinyun Chen, Denny Zhou, Jian Tang, Dale Schuurmans,
+  and Hanjun Dai.
+\newblock Large language models can learn rules.
+\newblock \emph{arXiv preprint arXiv:2310.07064}, 2023.
+
+\end{thebibliography}
