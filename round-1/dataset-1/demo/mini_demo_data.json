@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "description": "Mini demo: CLUTRR kinship + RuleTaker + ProofWriter (3 examples each)",
+    "total_examples": 9,
+    "sources": {
+      "CLUTRR": 3,
+      "ProofWriter": 3,
+      "RuleTaker": 3
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "CLUTRR",
+      "examples": [
+        {
+          "input": "Context: [Tony] woke up on his 7th birthday to a surprise present sitting on his night stand. It was from his Grandma [Ashley], and [Tony]'s sister [Charlotte] looked on excitedly as he opened his present.\n\nQuestion: What is the relationship between Ashley and Charlotte?",
+          "output": "granddaughter",
+          "metadata_id": "CLUTRR_test_16b898d1-a77e-4e05-86d6-b6e614b030ab",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Emily] and her granddaughter [Ashley] went to the mall [Michael] likes to visit his sister. Her name is [Emily].\n\nQuestion: What is the relationship between Ashley and Michael?",
+          "output": "grandson",
+          "metadata_id": "CLUTRR_test_0f226f4d-dc2d-4051-a875-9e555ecf0f22",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Michael] woke up on his 7th birthday to a surprise present sitting on his night stand. It was from his Grandma [Ashley], and [Michael]'s sister [Emily] looked on excitedly as he opened his present.\n\nQuestion: What is the relationship between Ashley and Emily?",
+          "output": "granddaughter",
+          "metadata_id": "CLUTRR_test_c5e1a350-9492-4d24-a808-532f35e22d52",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        }
+      ]
+    },
+    {
+      "dataset": "ProofWriter",
+      "examples": [
+        {
+          "input": "Context: The lion is big. The lion is not blue. The lion is not nice. The lion is red. The lion is young. If something is nice and young then it is red. All blue things are red. Blue, big things are not red. If the lion is nice then the lion is red. If the lion is red and the lion is not young then the lion is not nice. All young things are not blue. If something is red and not big then it is blue. Big things are not nice.\n\nQuestion: The lion chases the lion.",
+          "output": "Unknown",
+          "metadata_id": "ProofWriter_qdep0_0",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bald eagle sees the lion. The lion chases the bald eagle. The lion likes the bald eagle. If something chases the bald eagle and it likes the lion then it sees the bald eagle. If something sees the bald eagle then the bald eagle is rough.\n\nQuestion: The lion sees the lion.",
+          "output": "Unknown",
+          "metadata_id": "ProofWriter_qdep0_1",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Dave is green. Dave is nice. Dave is rough. Dave is round. Dave is smart. Erin is green. Erin is kind. Erin is nice. Erin is rough. Erin is round. Erin is smart. Erin is young. Harry is green. Harry is kind. Harry is nice. Harry is rough. All rough, kind people are nice. Smart, round people are young. If someone is young then they are round.\n\nQuestion: Erin is not round.",
+          "output": "False",
+          "metadata_id": "ProofWriter_qdep0_2",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        }
+      ]
+    },
+    {
+      "dataset": "RuleTaker",
+      "examples": [
+        {
+          "input": "Context: The cow likes the mouse. The dog chases the cow. The mouse likes the cow. The mouse needs the dog. The rabbit chases the mouse. The rabbit likes the cow. The rabbit needs the dog. If the cow needs the mouse then the mouse likes the rabbit. If the mouse is nice and something does not need the mouse then the mouse is round. If something does not like the cow then it chases the cow. If something chases the cow then it is green. If something likes the cow then the cow chases the rabbit. If something does not chase the rabbit then the rabbit is rough.\n\nQuestion: The dog does not chase the cow.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-0_0",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The mouse chases the rabbit. The mouse eats the rabbit. The mouse eats the squirrel. The mouse is kind. The mouse needs the squirrel. The rabbit does not chase the squirrel. The rabbit eats the squirrel. The rabbit is kind. The squirrel chases the mouse. The squirrel needs the rabbit. If something does not need the squirrel and it does not need the rabbit then the squirrel chases the mouse. If something does not eat the mouse and it does not need the squirrel then it eats the squirrel.\n\nQuestion: The mouse is kind.",
+          "output": "True",
+          "metadata_id": "RuleTaker_depth-0_1",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bald eagle is green. The bald eagle likes the bear. The bald eagle likes the lion. The bear is blue. The bear is red. The bear is young. The bear needs the lion. The bear visits the bald eagle. The bear visits the lion. The lion is green. The lion needs the tiger. The lion visits the bear. The lion visits the tiger. The tiger is round. The tiger needs the bald eagle. The tiger visits the lion. If someone visits the tiger then the tiger visits the bald eagle. If someone likes the bald eagle and the bald eagle is young then the bald eagle needs the tiger. If someone needs the lion then the lion is red. If someone likes the bald eagle and they are young then they like the tiger. If someone needs the lion and they need the bald eagle then they are green. If the tiger likes the bald eagle then the tiger likes the lion.\n\nQuestion: The lion is not green.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-0_2",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        }
+      ]
+    }
+  ]
+}

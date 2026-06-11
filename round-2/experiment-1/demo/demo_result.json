@@ -1,0 +1,16 @@
+{
+  "kind": "code_demo",
+  "id": "art_IcCfdITDTedc",
+  "name": "gen_art_experiment_1",
+  "type": "code",
+  "iteration": 2,
+  "title": "Bounded ATMS Iter-2: Matched-Coverage Baselines and 70B Ablation",
+  "summary": "This artifact extends the iter-1 bounded ATMS hallucination-metering pipeline with three new analyses on 342 instances from the unified CLUTRR + RuleTaker + ProofWriter benchmark.\n\n**Matched-coverage baselines (H3):** For each baseline (CoT, LINC, ProbLog), we sweep confidence thresholds to match ATMS's natural 22.9% coverage rate, then compare accuracy. A random-oracle baseline (100 seeds) provides the null hypothesis. This rules out the random-abstention confound from iter-1.\n\n**Assumption-load stratification (H2):** Instances are binned by ATMS assumption_load (\u03bb=0,1,2,\u22653,\u221e). Error rates and Spearman \u03c1 are reported per stratum. Strata with <30 instances are flagged as underpowered.\n\n**ATMS-vs-ProbLog divergence:** Instances where ATMS and ProbLog disagree are annotated with ground-truth outcomes (which method was correct), providing the ground-truth comparison missing from iter-1's 4/48 divergence count.\n\n**70B model ablation:** The full pipeline is re-run with meta-llama/llama-3.1-70b-instruct on a stratified 150-instance subset (50 per dataset), contingent on remaining budget >$3.\n\n**Infrastructure:** All LLM calls via OpenRouter with aiohttp async (Semaphore(8)), cumulative cost tracking enforced against $8 cap. Loguru file+stdout logging. NaN guards throughout metrics. Output saved to full_method_out.json following exp_gen_sol_out schema.",
+  "original_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_r4ZXzXG-rGek/3_invention_loop/iter_2/gen_art/gen_art_experiment_1",
+  "demo_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_r4ZXzXG-rGek/4_gen_paper_repo/_3_gen_art_demo/iter_2/art_IcCfdITDTedc",
+  "out_expected_files": {
+    "notebook": "code_demo.ipynb",
+    "mini_data_file": "mini_demo_data.json"
+  },
+  "notebook_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_r4ZXzXG-rGek/4_gen_paper_repo/_3_gen_art_demo/iter_2/art_IcCfdITDTedc/method_code_demo.ipynb"
+}

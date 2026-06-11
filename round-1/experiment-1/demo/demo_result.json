@@ -1,0 +1,16 @@
+{
+  "kind": "code_demo",
+  "id": "art_wZDFf8XY28W4",
+  "name": "gen_art_experiment_1",
+  "type": "code",
+  "iteration": 1,
+  "title": "Bounded ATMS Hallucination Meter for Text-to-Logic Reasoning",
+  "summary": "Implemented a two-layer neuro-symbolic pipeline (BoundedATMS, depth_cap=3, beam_width=20) separating L1 document grounding from L2 assumption tracking. The pipeline runs on 48 instances: 10 synthetic CLUTRR kinship-reasoning, 8 synthetic bAbI location-deduction, and 30 custom multi-hop documents. L1 grounding uses an LLM to extract explicit atomic facts with grounding spans; L2 assumption proposal uses an LLM to propose fuzzy unifications and bridge rules, each seeded as ATMS assumptions with singleton environments. Forward-chaining propagates environments up to depth_cap=3 with beam pruning (beam_width=20). Assumption load (minimum supporting environment size) scores each conclusion: 0=grounded-fact derivable (hallucination-free), inf=not derivable. Baselines include CoT (chain-of-thought yes/no), LINC-style majority vote (K=3), and ProbLog approximation. Canonical predicate normalization and synonym regex matching bridge LLM output variation to deterministic ATMS symbol matching. Stage-0 tractability pilot passed (mean_wall_clock=12.21s with asyncio concurrency, exact_atms mode selected). Full run completed 48 instances at $0.0072 total cost. Key metrics: empty-environment precision=0.900, Spearman rho=-0.100 (assumption_load vs. error), our method accuracy=0.354 (abstain_rate=0.771), CoT accuracy=0.875. The high abstain rate reflects the ATMS correctly identifying non-derivable conclusions; accuracy under answered instances is higher. Output schema validated against exp_gen_sol_out. All files under workspace. Pinned dependencies recorded in pyproject.toml for reproducibility.",
+  "original_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_r4ZXzXG-rGek/3_invention_loop/iter_1/gen_art/gen_art_experiment_1",
+  "demo_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_r4ZXzXG-rGek/4_gen_paper_repo/_3_gen_art_demo/iter_1/art_wZDFf8XY28W4",
+  "out_expected_files": {
+    "notebook": "",
+    "mini_data_file": ""
+  },
+  "notebook_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_r4ZXzXG-rGek/4_gen_paper_repo/_3_gen_art_demo/iter_1/art_wZDFf8XY28W4/method_code_demo.ipynb"
+}

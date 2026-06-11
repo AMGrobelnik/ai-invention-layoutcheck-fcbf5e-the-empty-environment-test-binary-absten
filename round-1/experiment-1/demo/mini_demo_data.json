@@ -1,0 +1,188 @@
+{
+  "datasets": [
+    {
+      "dataset": "clutrr",
+      "examples": [
+        {
+          "input": "Document: Alice is Bob's mother. Bob is Carol's father.\n\nQuery: Is Alice Carol's grandmother?",
+          "output": "yes",
+          "predict_our_method": "yes",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "2",
+          "metadata_assumption_load": "0.0",
+          "metadata_empty_env_derivable": "True",
+          "metadata_n_choice_points": "2",
+          "metadata_cumulative_cost_usd": "0.00146",
+          "metadata_wall_clock_sec": "6.077",
+          "metadata_l1_grounding_verified": "True"
+        },
+        {
+          "input": "Document: John married Mary. Mary is Lisa's mother. John is Peter's father.\n\nQuery: Are Lisa and Peter siblings?",
+          "output": "yes",
+          "predict_our_method": "no",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "2",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "4",
+          "metadata_cumulative_cost_usd": "0.00149",
+          "metadata_wall_clock_sec": "4.658",
+          "metadata_l1_grounding_verified": "True"
+        },
+        {
+          "input": "Document: Tom is Jane's father. Jane is Ann's mother. Ann is Sue's mother.\n\nQuery: Is Tom Sue's great-grandfather?",
+          "output": "yes",
+          "predict_our_method": "yes",
+          "predict_cot": "yes",
+          "predict_linc": "no",
+          "predict_problog": "no",
+          "metadata_hop_count": "3",
+          "metadata_assumption_load": "0.0",
+          "metadata_empty_env_derivable": "True",
+          "metadata_n_choice_points": "3",
+          "metadata_cumulative_cost_usd": "0.00143",
+          "metadata_wall_clock_sec": "8.618",
+          "metadata_l1_grounding_verified": "True"
+        }
+      ]
+    },
+    {
+      "dataset": "babi",
+      "examples": [
+        {
+          "input": "Document: Mary traveled to the office. John went to the kitchen. Mary went to the garden.\n\nQuery: Is Mary in the garden?",
+          "output": "yes",
+          "predict_our_method": "yes",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "1",
+          "metadata_assumption_load": "0.0",
+          "metadata_empty_env_derivable": "True",
+          "metadata_n_choice_points": "2",
+          "metadata_cumulative_cost_usd": "0.0021",
+          "metadata_wall_clock_sec": "26.055",
+          "metadata_l1_grounding_verified": "True"
+        },
+        {
+          "input": "Document: Daniel went to the bedroom. Sandra traveled to the office. Daniel moved to the kitchen.\n\nQuery: Is Daniel in the kitchen?",
+          "output": "yes",
+          "predict_our_method": "yes",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "1",
+          "metadata_assumption_load": "0.0",
+          "metadata_empty_env_derivable": "True",
+          "metadata_n_choice_points": "3",
+          "metadata_cumulative_cost_usd": "0.00211",
+          "metadata_wall_clock_sec": "20.392",
+          "metadata_l1_grounding_verified": "True"
+        },
+        {
+          "input": "Document: John picked up the football. John went to the bedroom. John dropped the football.\n\nQuery: Is the football in the bedroom?",
+          "output": "yes",
+          "predict_our_method": "yes",
+          "predict_cot": "no",
+          "predict_linc": "no",
+          "predict_problog": "yes",
+          "metadata_hop_count": "2",
+          "metadata_assumption_load": "0.0",
+          "metadata_empty_env_derivable": "True",
+          "metadata_n_choice_points": "2",
+          "metadata_cumulative_cost_usd": "0.00283",
+          "metadata_wall_clock_sec": "5.641",
+          "metadata_l1_grounding_verified": "True"
+        }
+      ]
+    },
+    {
+      "dataset": "custom",
+      "examples": [
+        {
+          "input": "Document: In Smith v. Jones (2021), the court ruled that Smith, who is the landlord of the disputed property, had failed to provide adequate notice before eviction. The tenant, Jones, had lived at the property for five years. The judge, Honorable Williams, ordered compensation of $5,000.\n\nQuery: Does Smith own the disputed property?",
+          "output": "yes",
+          "predict_our_method": "no",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "1",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "3",
+          "metadata_cumulative_cost_usd": "0.00347",
+          "metadata_wall_clock_sec": "12.038",
+          "metadata_l1_grounding_verified": "True"
+        },
+        {
+          "input": "Document: The company TechCorp announced that CEO Alice Brown would resign effective January 2024. The board appointed CFO Robert Green as interim CEO. Employees were notified by email.\n\nQuery: Is Alice Brown leaving TechCorp?",
+          "output": "yes",
+          "predict_our_method": "no",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "1",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "2",
+          "metadata_cumulative_cost_usd": "0.00352",
+          "metadata_wall_clock_sec": "10.501",
+          "metadata_l1_grounding_verified": "True"
+        },
+        {
+          "input": "Document: Jack and Jill went up the hill to fetch a pail of water. Jack fell down and broke his crown, and Jill came tumbling after. The accident happened on a steep slope near the village well.\n\nQuery: Did Jack get injured?",
+          "output": "yes",
+          "predict_our_method": "yes",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "1",
+          "metadata_assumption_load": "0.0",
+          "metadata_empty_env_derivable": "True",
+          "metadata_n_choice_points": "1",
+          "metadata_cumulative_cost_usd": "0.00363",
+          "metadata_wall_clock_sec": "8.200",
+          "metadata_l1_grounding_verified": "True"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "method_name": "Bounded-ATMS Hallucination Meter",
+    "description": "Two-layer neuro-symbolic pipeline with L1 grounding + L2 ATMS assumption tracking",
+    "parameters": {
+      "depth_cap": 3,
+      "beam_width": 20,
+      "assumption_threshold": 2,
+      "linc_k": 3,
+      "model": "meta-llama/llama-3.1-8b-instruct"
+    },
+    "evaluation": {
+      "l1_grounding_error_rate": 0.0,
+      "empty_env_precision": 0.9,
+      "n_empty_env_derivable": 10,
+      "spearman_rho": -0.1,
+      "spearman_p": 0.7699,
+      "overall_accuracy": {
+        "our_method": 0.354,
+        "cot": 0.875,
+        "linc": 0.896,
+        "problog": 0.854
+      },
+      "abstain_rate": 0.771,
+      "answered_accuracy_our_method": 0.909,
+      "risk_coverage_auc": {
+        "our_method": 0.0227,
+        "cot": 0.125,
+        "linc_vote": 0.104,
+        "problog": 0.146
+      }
+    },
+    "total_cost_usd": 0.007178,
+    "n_instances": 48
+  }
+}
