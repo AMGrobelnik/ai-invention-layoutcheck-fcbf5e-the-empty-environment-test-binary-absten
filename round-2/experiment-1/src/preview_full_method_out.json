@@ -1,0 +1,326 @@
+{
+  "datasets": [
+    {
+      "dataset": "clutrr",
+      "examples": [
+        {
+          "input": "Document: [Tony] woke up on his 7th birthday to a surprise present sitting on his night stand. It was from his Grandma [Ashley], and [Tony]'s sister [Charlotte] looked on excitedly as he opened his pr...",
+          "output": "yes",
+          "predict_our_method": "no",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "2",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "4",
+          "metadata_cot_confidence": "1.0",
+          "metadata_linc_confidence": "1.0",
+          "metadata_problog_prob": "0.99",
+          "metadata_cumulative_cost_usd": "0.00198",
+          "metadata_wall_clock_sec": "25.364"
+        },
+        {
+          "input": "Document: [Emily] and her granddaughter [Ashley] went to the mall [Michael] likes to visit his sister. Her name is [Emily].\n\nQuery: Is michael the grandson of ashley?",
+          "output": "yes",
+          "predict_our_method": "no",
+          "predict_cot": "no",
+          "predict_linc": "no",
+          "predict_problog": "no",
+          "metadata_hop_count": "2",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "3",
+          "metadata_cot_confidence": "0.5",
+          "metadata_linc_confidence": "1.0",
+          "metadata_problog_prob": "0.99",
+          "metadata_cumulative_cost_usd": "0.00189",
+          "metadata_wall_clock_sec": "13.567"
+        },
+        {
+          "input": "Document: [Michael] woke up on his 7th birthday to a surprise present sitting on his night stand. It was from his Grandma [Ashley], and [Michael]'s sister [Emily] looked on excitedly as he opened his ...",
+          "output": "yes",
+          "predict_our_method": "no",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "2",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "3",
+          "metadata_cot_confidence": "1.0",
+          "metadata_linc_confidence": "1.0",
+          "metadata_problog_prob": "0.99",
+          "metadata_cumulative_cost_usd": "0.00174",
+          "metadata_wall_clock_sec": "6.499"
+        }
+      ]
+    },
+    {
+      "dataset": "proofwriter",
+      "examples": [
+        {
+          "input": "Document: Dave is green. Dave is nice. Dave is rough. Dave is round. Dave is smart. Erin is green. Erin is kind. Erin is nice. Erin is rough. Erin is round. Erin is smart. Erin is young. Harry is gree...",
+          "output": "no",
+          "predict_our_method": "no",
+          "predict_cot": "no",
+          "predict_linc": "no",
+          "predict_problog": "no",
+          "metadata_hop_count": "0",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "3",
+          "metadata_cot_confidence": "1.0",
+          "metadata_linc_confidence": "1.0",
+          "metadata_problog_prob": "1.0",
+          "metadata_cumulative_cost_usd": "0.00429",
+          "metadata_wall_clock_sec": "24.94"
+        },
+        {
+          "input": "Document: Bob is furry. Bob is quiet. Bob is smart. Harry is cold. Harry is nice. Harry is quiet. Harry is smart. All furry, nice things are white. All smart things are round. If Bob is smart then Bob...",
+          "output": "yes",
+          "predict_our_method": "no",
+          "predict_cot": "no",
+          "predict_linc": "no",
+          "predict_problog": "no",
+          "metadata_hop_count": "0",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "4",
+          "metadata_cot_confidence": "0.5",
+          "metadata_linc_confidence": "0.6667",
+          "metadata_problog_prob": "1.0",
+          "metadata_cumulative_cost_usd": "0.00445",
+          "metadata_wall_clock_sec": "27.019"
+        },
+        {
+          "input": "Document: Fiona is red. Fiona is rough. Fiona is round. Furry, red things are green. All green things are not cold. If Fiona is red then Fiona is furry.\n\nQuery: Fiona is not red.",
+          "output": "no",
+          "predict_our_method": "no",
+          "predict_cot": "no",
+          "predict_linc": "no",
+          "predict_problog": "no",
+          "metadata_hop_count": "0",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "4",
+          "metadata_cot_confidence": "0.0",
+          "metadata_linc_confidence": "1.0",
+          "metadata_problog_prob": "1.0",
+          "metadata_cumulative_cost_usd": "0.00438",
+          "metadata_wall_clock_sec": "34.21"
+        }
+      ]
+    },
+    {
+      "dataset": "ruletaker",
+      "examples": [
+        {
+          "input": "Document: The cow likes the mouse. The dog chases the cow. The mouse likes the cow. The mouse needs the dog. The rabbit chases the mouse. The rabbit likes the cow. The rabbit needs the dog. If the cow...",
+          "output": "no",
+          "predict_our_method": "no",
+          "predict_cot": "no",
+          "predict_linc": "no",
+          "predict_problog": "no",
+          "metadata_hop_count": "0",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "6",
+          "metadata_cot_confidence": "0.5",
+          "metadata_linc_confidence": "0.6667",
+          "metadata_problog_prob": "1.0",
+          "metadata_cumulative_cost_usd": "0.0099",
+          "metadata_wall_clock_sec": "43.102"
+        },
+        {
+          "input": "Document: The mouse chases the rabbit. The mouse eats the rabbit. The mouse eats the squirrel. The mouse is kind. The mouse needs the squirrel. The rabbit does not chase the squirrel. The rabbit eats ...",
+          "output": "yes",
+          "predict_our_method": "no",
+          "predict_cot": "yes",
+          "predict_linc": "no",
+          "predict_problog": "yes",
+          "metadata_hop_count": "0",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "3",
+          "metadata_cot_confidence": "1.0",
+          "metadata_linc_confidence": "1.0",
+          "metadata_problog_prob": "0.99",
+          "metadata_cumulative_cost_usd": "0.00962",
+          "metadata_wall_clock_sec": "39.969"
+        },
+        {
+          "input": "Document: The bald eagle is green. The bald eagle likes the bear. The bald eagle likes the lion. The bear is blue. The bear is red. The bear is young. The bear needs the lion. The bear visits the bald...",
+          "output": "no",
+          "predict_our_method": "no",
+          "predict_cot": "no",
+          "predict_linc": "yes",
+          "predict_problog": "no",
+          "metadata_hop_count": "0",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "2",
+          "metadata_cot_confidence": "1.0",
+          "metadata_linc_confidence": "0.6667",
+          "metadata_problog_prob": "0.99",
+          "metadata_cumulative_cost_usd": "0.00968",
+          "metadata_wall_clock_sec": "39.185"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "method_name": "Bounded-ATMS-v2",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "n_instances": 60,
+    "n_instances_70b_ablation": 0,
+    "stage0_tractability": {
+      "mean_choice_points": 3.533333333333333,
+      "mean_nogoods": 0.0,
+      "mean_wall_clock_sec": 11.461182309271923,
+      "mean_llm_cost_per_doc": 6.2224e-05,
+      "decision": "exact_atms",
+      "n_pilot_docs": 15
+    },
+    "total_cost_usd": 0.012630240000000003,
+    "parameters": {
+      "depth_cap": 3,
+      "beam_width": 20,
+      "linc_k": 3
+    },
+    "evaluation": {
+      "l1_grounding_error_rate": 0.07177033492822966,
+      "empty_env_precision": 1.0,
+      "n_empty_env_derivable": 2,
+      "spearman_rho": NaN,
+      "spearman_p": NaN,
+      "auroc_assumption_load": NaN,
+      "risk_coverage_auc": {
+        "our_method": 0.0,
+        "cot": 0.18333333333333332,
+        "linc": 0.2833333333333333,
+        "problog": 0.2
+      },
+      "implicit_advantage_gap": -0.95,
+      "explicit_advantage_gap": -0.125,
+      "abstain_rate": 0.9666666666666667,
+      "answered_accuracy_our_method": 1.0,
+      "overall_accuracy": {
+        "our_method": 0.4166666666666667,
+        "cot": 0.8166666666666667,
+        "linc": 0.7166666666666667,
+        "problog": 0.8
+      }
+    },
+    "matched_coverage_baselines": {
+      "cot": {
+        "target_coverage": 0.229,
+        "actual_coverage": 0.23333333333333334,
+        "n_answered": 14,
+        "accuracy_at_matched_coverage": 1.0,
+        "threshold_used": 1.0
+      },
+      "linc": {
+        "target_coverage": 0.229,
+        "actual_coverage": 0.23333333333333334,
+        "n_answered": 14,
+        "accuracy_at_matched_coverage": 0.9285714285714286,
+        "threshold_used": 1.0
+      },
+      "problog": {
+        "target_coverage": 0.229,
+        "actual_coverage": 0.23333333333333334,
+        "n_answered": 14,
+        "accuracy_at_matched_coverage": 0.7142857142857143,
+        "threshold_used": 1.0
+      },
+      "atms_matched_coverage": {
+        "target_coverage": 0.229,
+        "actual_coverage": 0.03333333333333333,
+        "n_answered": 2,
+        "accuracy_at_matched_coverage": 1.0
+      }
+    },
+    "random_oracle_accuracy": {
+      "target_coverage": 0.229,
+      "n_seeds": 100,
+      "mean_accuracy": 0.41428571428571426,
+      "std_accuracy": 0.12737538928662148
+    },
+    "assumption_load_stratification": {
+      "0": {
+        "n": 2,
+        "n_evaluable": 2,
+        "error_rate": 0.0,
+        "h2_testable": false
+      },
+      "1": {
+        "n": 0,
+        "error_rate": NaN,
+        "note": "empty stratum"
+      },
+      "2": {
+        "n": 0,
+        "error_rate": NaN,
+        "note": "empty stratum"
+      },
+      "3+": {
+        "n": 0,
+        "error_rate": NaN,
+        "note": "empty stratum"
+      },
+      "inf": {
+        "n": 58,
+        "n_evaluable": 58,
+        "error_rate": 0.603448275862069,
+        "h2_testable": true
+      },
+      "spearman_rho": NaN,
+      "spearman_p": NaN,
+      "n_finite_load": 2
+    },
+    "atms_vs_problog_divergence": {
+      "n_total": 60,
+      "n_divergent": 31,
+      "divergence_rate": 0.5166666666666667,
+      "atms_wins_on_divergent": 4,
+      "problog_wins_on_divergent": 27,
+      "both_wrong_on_divergent": 0,
+      "divergent_records": [
+        {
+          "doc_id": "CLUTRR_test_16b898d1-a77e-4e05-86d6-b6e614b030ab",
+          "assumption_load": Infinity,
+          "atms_answer": "no",
+          "problog_answer": "yes",
+          "gold": "yes",
+          "atms_correct": 0,
+          "problog_correct": 1
+        },
+        {
+          "doc_id": "CLUTRR_test_c5e1a350-9492-4d24-a808-532f35e22d52",
+          "assumption_load": Infinity,
+          "atms_answer": "no",
+          "problog_answer": "yes",
+          "gold": "yes",
+          "atms_correct": 0,
+          "problog_correct": 1
+        },
+        {
+          "doc_id": "CLUTRR_test_4da7525b-4b04-459e-96fd-43aec1c4fdb0",
+          "assumption_load": Infinity,
+          "atms_answer": "no",
+          "problog_answer": "yes",
+          "gold": "yes",
+          "atms_correct": 0,
+          "problog_correct": 1
+        }
+      ]
+    },
+    "model_ablation_results": {
+      "model": "meta-llama/llama-3.1-70b-instruct",
+      "n_instances": 0,
+      "metrics": {}
+    },
+    "note": "fast_60_instance_run"
+  }
+}

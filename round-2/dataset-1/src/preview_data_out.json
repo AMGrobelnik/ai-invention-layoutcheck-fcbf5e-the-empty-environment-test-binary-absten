@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "description": "L1 grounding ambiguity dataset for multi-hop reasoning",
+    "total_examples": 600,
+    "sources": [
+      "clutrr_v1",
+      "hotpotqa",
+      "2wikimultihopqa"
+    ]
+  },
+  "datasets": [
+    {
+      "dataset": "clutrr_v1",
+      "examples": [
+        {
+          "input": "Story: [Harold] 'daughter, [Tracy], just made it into grad school. [Erika] gave her Aunt [Marie] a kiss. [Tracy] wanted her daughter, [Laura], to go shopping with her. [Laura] invited her sister, [Eri...",
+          "output": "daughter",
+          "metadata_id": "clutrr_v1_0",
+          "metadata_fold": "train",
+          "metadata_domain": "kinship_reasoning",
+          "metadata_hop_count": 4,
+          "metadata_l1_ambiguity_level": "none",
+          "metadata_gold_atomic_facts": "[{\"predicate\": \"daughter\", \"args\": [\"0\", \"1\"], \"span_start\": 0, \"span_end\": 0}, {\"predicate\": \"daughter\", \"args\": [\"1\", \"2\"], \"span_start\": 0, \"span_end\": 0}, {\"predicate\": \"sister\", \"args\": [\"2\", \"3\"..."
+        },
+        {
+          "input": "Story: [Felicia] has a sister named [Andrea]. [Andrea] did n't have the best upbringing, although her father, [Joshua] tried his best. [Joshua]'s father [James] is going to coach the team this year.\n\n...",
+          "output": "granddaughter",
+          "metadata_id": "clutrr_v1_1",
+          "metadata_fold": "train",
+          "metadata_domain": "kinship_reasoning",
+          "metadata_hop_count": 3,
+          "metadata_l1_ambiguity_level": "none",
+          "metadata_gold_atomic_facts": "[{\"predicate\": \"son\", \"args\": [\"0\", \"1\"], \"span_start\": 0, \"span_end\": 0}, {\"predicate\": \"daughter\", \"args\": [\"1\", \"2\"], \"span_start\": 0, \"span_end\": 0}, {\"predicate\": \"sister\", \"args\": [\"2\", \"3\"], \"s..."
+        },
+        {
+          "input": "Story: [Kristin] went to dinner with her daughter [Demetra]. They then went to the park afterwards. [John] was so proud of his son, [Gregory]. he received a great scholarship to college. [Kristin] dec...",
+          "output": "father",
+          "metadata_id": "clutrr_v1_2",
+          "metadata_fold": "train",
+          "metadata_domain": "kinship_reasoning",
+          "metadata_hop_count": 3,
+          "metadata_l1_ambiguity_level": "none",
+          "metadata_gold_atomic_facts": "[{\"predicate\": \"daughter\", \"args\": [\"0\", \"1\"], \"span_start\": 0, \"span_end\": 0}, {\"predicate\": \"uncle\", \"args\": [\"1\", \"2\"], \"span_start\": 0, \"span_end\": 0}, {\"predicate\": \"father\", \"args\": [\"2\", \"3\"], ..."
+        }
+      ]
+    },
+    {
+      "dataset": "hotpotqa",
+      "examples": [
+        {
+          "input": "Context:\nList of Heroes episodes: The NBC science fiction serial drama series \"Heroes\" follows the lives of people around the globe who possess various superhuman powers as they struggle to cope with ...",
+          "output": "Netflix",
+          "metadata_id": "hotpotqa_5ae7cea355429952e35ea9c1",
+          "metadata_fold": "train",
+          "metadata_domain": "wikipedia_multihop",
+          "metadata_hop_count": 2,
+          "metadata_l1_ambiguity_level": "low",
+          "metadata_gold_atomic_facts": "[{\"predicate\": \"supports\", \"args\": [\"Easy (TV series)\", \"Netflix\"], \"span_start\": 2534, \"span_end\": 2598}]"
+        },
+        {
+          "input": "Context:\nSalisbury, Nassau County, New York: Salisbury is a hamlet and census-designated place (CDP) in Nassau County, New York, United States.  The population was 12,093 at the 2010 census.  Many [Wi...",
+          "output": "Baldwin",
+          "metadata_id": "hotpotqa_5a77a44d5542997042120aba",
+          "metadata_fold": "train",
+          "metadata_domain": "wikipedia_multihop",
+          "metadata_hop_count": 2,
+          "metadata_l1_ambiguity_level": "low",
+          "metadata_gold_atomic_facts": "[]"
+        },
+        {
+          "input": "Context:\nMTV Video Music Award for Best Dance Video: The MTV Video Music Award for Best Dance Video was first awarded in 1989, and it was one of the original four genre categories that were added to t...",
+          "output": "Taylor Swift",
+          "metadata_id": "hotpotqa_5a775f8a5542994aec3b72ba",
+          "metadata_fold": "train",
+          "metadata_domain": "wikipedia_multihop",
+          "metadata_hop_count": 2,
+          "metadata_l1_ambiguity_level": "low",
+          "metadata_gold_atomic_facts": "[{\"predicate\": \"supports\", \"args\": [\"Taylor Swift videography\", \"Taylor Swift\"], \"span_start\": 4212, \"span_end\": 4368}, {\"predicate\": \"supports\", \"args\": [\"Taylor Swift videography\", \"Taylor Swift\"], ..."
+        }
+      ]
+    },
+    {
+      "dataset": "2wikimultihopqa",
+      "examples": [
+        {
+          "input": "Context:\n[SUPPORTING] Norman Hay Forbes: Norman Hay Forbes of Forbes, FRS, FRSE, FRCSE, JP( 1 March 1863- 27 June 1916) was a British doctor and academic author, often under the name of Li’mach, the w...",
+          "output": "Bruno Foucher",
+          "metadata_id": "2wiki_706064e7087b11ebbd68ac1f6bf848b6",
+          "metadata_fold": "train",
+          "metadata_domain": "wikipedia_multihop",
+          "metadata_hop_count": 3,
+          "metadata_l1_ambiguity_level": "high",
+          "metadata_gold_atomic_facts": "[{\"predicate\": \"date of birth\", \"args\": [\"Norman Hay Forbes\", \"1 March 1863\"], \"span_start\": 13, \"span_end\": 30}, {\"predicate\": \"date of birth\", \"args\": [\"Bruno Foucher\", \"3 October 1960\"], \"span_star..."
+        },
+        {
+          "input": "Context:\nBen Palmer: Ben Palmer is a British film and television director who is known for being the director of\" Bo' Selecta\" and\" The Inbetweeners\".\n\n[SUPPORTING] Spring in a Small Town: Spring in a...",
+          "output": "Cannibal Tours",
+          "metadata_id": "2wiki_7a3da0d0084b11ebbd56ac1f6bf848b6",
+          "metadata_fold": "train",
+          "metadata_domain": "wikipedia_multihop",
+          "metadata_hop_count": 3,
+          "metadata_l1_ambiguity_level": "medium",
+          "metadata_gold_atomic_facts": "[{\"predicate\": \"director\", \"args\": [\"Spring in a Small Town\", \"Fei Mu\"], \"span_start\": 156, \"span_end\": 178}, {\"predicate\": \"director\", \"args\": [\"Cannibal Tours\", \"Dennis O'Rourke\"], \"span_start\": 117..."
+        },
+        {
+          "input": "Context:\nFlagship magazine: Flagship Magazine was an independent magazine for gamers. Published in the UK, it started in 1983 for Play- by- mail game( PBM) players. In 2002 it extended its coverage to...",
+          "output": "Illustreret Nyhedsblad",
+          "metadata_id": "2wiki_80774c5508f911ebbdaaac1f6bf848b6",
+          "metadata_fold": "train",
+          "metadata_domain": "wikipedia_multihop",
+          "metadata_hop_count": 3,
+          "metadata_l1_ambiguity_level": "high",
+          "metadata_gold_atomic_facts": "[{\"predicate\": \"inception\", \"args\": [\"Tit-Bits\", \"1881\"], \"span_start\": 4829, \"span_end\": 4837}, {\"predicate\": \"inception\", \"args\": [\"Illustreret Nyhedsblad\", \"1851\"], \"span_start\": 2574, \"span_end\": ..."
+        }
+      ]
+    }
+  ]
+}

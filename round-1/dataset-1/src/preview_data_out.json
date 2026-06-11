@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "description": "Unified ATMS benchmark: CLUTRR kinship + RuleTaker + ProofWriter explicit-rule",
+    "total_examples": 380,
+    "sources": {
+      "CLUTRR": 180,
+      "ProofWriter": 100,
+      "RuleTaker": 100
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "CLUTRR",
+      "examples": [
+        {
+          "input": "Context: [Tony] woke up on his 7th birthday to a surprise present sitting on his night stand. It was from his Grandma [Ashley], and [Tony]'s sister [Charlotte] looked on excitedly as he opened his pre...",
+          "output": "granddaughter",
+          "metadata_id": "CLUTRR_test_16b898d1-a77e-4e05-86d6-b6e614b030ab",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Emily] and her granddaughter [Ashley] went to the mall [Michael] likes to visit his sister. Her name is [Emily].\n\nQuestion: What is the relationship between Ashley and Michael?",
+          "output": "grandson",
+          "metadata_id": "CLUTRR_test_0f226f4d-dc2d-4051-a875-9e555ecf0f22",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Michael] woke up on his 7th birthday to a surprise present sitting on his night stand. It was from his Grandma [Ashley], and [Michael]'s sister [Emily] looked on excitedly as he opened his p...",
+          "output": "granddaughter",
+          "metadata_id": "CLUTRR_test_c5e1a350-9492-4d24-a808-532f35e22d52",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        }
+      ]
+    },
+    {
+      "dataset": "ProofWriter",
+      "examples": [
+        {
+          "input": "Context: The lion is big. The lion is not blue. The lion is not nice. The lion is red. The lion is young. If something is nice and young then it is red. All blue things are red. Blue, big things are n...",
+          "output": "Unknown",
+          "metadata_id": "ProofWriter_qdep0_0",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bald eagle sees the lion. The lion chases the bald eagle. The lion likes the bald eagle. If something chases the bald eagle and it likes the lion then it sees the bald eagle. If something...",
+          "output": "Unknown",
+          "metadata_id": "ProofWriter_qdep0_1",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Dave is green. Dave is nice. Dave is rough. Dave is round. Dave is smart. Erin is green. Erin is kind. Erin is nice. Erin is rough. Erin is round. Erin is smart. Erin is young. Harry is green...",
+          "output": "False",
+          "metadata_id": "ProofWriter_qdep0_2",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        }
+      ]
+    },
+    {
+      "dataset": "RuleTaker",
+      "examples": [
+        {
+          "input": "Context: The cow likes the mouse. The dog chases the cow. The mouse likes the cow. The mouse needs the dog. The rabbit chases the mouse. The rabbit likes the cow. The rabbit needs the dog. If the cow ...",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-0_0",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The mouse chases the rabbit. The mouse eats the rabbit. The mouse eats the squirrel. The mouse is kind. The mouse needs the squirrel. The rabbit does not chase the squirrel. The rabbit eats t...",
+          "output": "True",
+          "metadata_id": "RuleTaker_depth-0_1",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bald eagle is green. The bald eagle likes the bear. The bald eagle likes the lion. The bear is blue. The bear is red. The bear is young. The bear needs the lion. The bear visits the bald ...",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-0_2",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        }
+      ]
+    }
+  ]
+}

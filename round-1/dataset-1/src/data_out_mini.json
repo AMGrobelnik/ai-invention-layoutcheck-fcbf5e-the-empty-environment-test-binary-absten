@@ -1,0 +1,892 @@
+{
+  "metadata": {
+    "description": "Unified ATMS benchmark: CLUTRR kinship + bAbI tasks 2/3/15 + RuleTaker + ProofWriter",
+    "total_examples": 479,
+    "sources": {
+      "CLUTRR": 180,
+      "ProofWriter": 100,
+      "RuleTaker": 100,
+      "bAbI_qa15": 33,
+      "bAbI_qa2": 33,
+      "bAbI_qa3": 33
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "CLUTRR",
+      "examples": [
+        {
+          "input": "Context: [Andrew] was so happy for his brother, [Jeremy], getting a promotion. [Richard] played scrabble with his mother [Victoria] and his brother [Charles]. [Jeremy] adored his brother, [Richard]. [Richard]'s brother, [Charles], also adored him.\n\nQuestion: What is the relationship between Andrew and Victoria?",
+          "output": "mother",
+          "metadata_id": "CLUTRR_test_17819a6f-564b-4921-94d2-49810e05df75",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 5,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Marie] went to her father [Harold] Birthday party [Shantel] went to the mall, because she wanted to look for a present for her daughter, [Marie]. [Dorothy] and her son [James] went to visit [Dorothy]'s mother [Shantel] in the hospital.\n\nQuestion: What is the relationship between James and Harold?",
+          "output": "grandfather",
+          "metadata_id": "CLUTRR_test_6d8da500-f9ca-4c61-842b-8feba90e6ee8",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 4,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Dorothy] became concerned when she had n't heard from her husband [Pedro] all day. [Dorothy]'s husband, [Pedro], surprised her with tickets to a football game for their anniversary. [Jerome] wanted to ask his mom, [Dorothy] if he could go to a sleepover. He asked his grandfather, [Harold] for advice.\n\nQuestion: What is the relationship between Dorothy and Harold?",
+          "output": "father-in-law",
+          "metadata_id": "CLUTRR_test_b590067b-ec17-4d4a-b6d8-be4f59048eed",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 4,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Daniel] took his son [Michael] out for ice cream. [Marguerite] was excited to visit her son, [Kyle], at college. [Michael] went to his brother [Kyle]'s Birthday party [Daniel] waited at dinner for his sister, [Gayle]. She was running late due to a phone call with her brother, [William]. [William] took his daughter [Lisa] to the baseball game. [Lisa]'s brother [George] hates baseball and stayed home.\n\nQuestion: What is the relationship between Marguerite and George?",
+          "output": "nephew",
+          "metadata_id": "CLUTRR_test_dad6777d-d07f-4dae-8077-261f25ef6b98",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 7,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Emily]'s grandfather [Clarence] recently passed away. She is taking a leave of absence. [Emily] went to her brother [Glen]'s birthday party\n\nQuestion: What is the relationship between Clarence and Glen?",
+          "output": "grandson",
+          "metadata_id": "CLUTRR_test_3dfca4ba-f6e5-449c-8a24-739e7c746559",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Margaret] went shoe shopping with her sister [Constance]. [Patrice]'s son [Darryl] made a crayon drawing for [Elsie], [Patrice]'s mother. [Steven] invited his children [Constance], [James], and [Cesar], on a cruise vacation. [James] and his brother, [Cesar], could not go because they had to work. [Darryl] and his brother [Dan] had a tie score. [Dan] asked his sister, [Nora], to come up with a tie-breaker. [Eric] bought gifts for his lovely sister, [Nora] [Elsie] was excited to visit her son, [Cesar], at college.\n\nQuestion: What is the relationship between Eric and Margaret?",
+          "output": "aunt",
+          "metadata_id": "CLUTRR_test_2e08abf3-dd53-4bc7-bc86-0c5ca70ed391",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 10,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Alvin]'s mother, [Mary], waited impatiently for him at the diner. [Mary] and her daughter, [Erica], were making dinner. [Erica]'s son, [Alfredo], helped with the salad. [Patrick] wanted to have a family cookout so he invited his brother [Ross]. [Ross] wanted to invite his other brother [Michael]. [Alfredo]'s brother, [Michael], recently made it into town.\n\nQuestion: What is the relationship between Alvin and Patrick?",
+          "output": "nephew",
+          "metadata_id": "CLUTRR_test_2e170b28-a504-4d2f-ad3a-202e77c5d4f8",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 6,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Patrice] and her brother [James] walked to the park. [Patrice]'s son [Darryl] joined them later on. [Eric] and his brother [Darryl] surprised [Eric]'s grandmother [Elsie] with an 80th birthday party. [William] bought a steak dinner for himself and his brother [James]. [Elsie] spent a great day shopping with her daughter, [Constance]. [Stanley] was excited to watch the hockey game with his father [Steve]. [Steve] had been excited to get the tickets from his father [Steven]. [Stanley] went to the bakery with his uncle [James] to pick up some bread for lunch. [Steven] and his son [James] went to the cinema together.\n\nQuestion: What is the relationship between William and Constance?",
+          "output": "sister",
+          "metadata_id": "CLUTRR_test_0d3e6ba4-e747-4e00-940d-5715e45c7ebc",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 10,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Beatrice] made a cake for her grandfather, [Steven]. [Elsie]'s son, [Cesar], went shopping for her. His sister, [Constance], came with him. [Constance]'s daughter, [Beatrice], tagged along as well. [Ellen] spent a great day shopping with her daughter, [Mabel]. [Steve] took his son [Steven] out for pizza. [James]'s mother, [Elsie], waited impatiently for him at the diner. [Nadia] bought her mother, [Ellen], a puppy for her birthday. [Sharon] went to the store with her sister [Mabel] [Sharon]'s father, [James], felt a wave of sadness when [Sharon] left for college.\n\nQuestion: What is the relationship between Nadia and Steve?",
+          "output": "uncle",
+          "metadata_id": "CLUTRR_test_6d4c7b78-2c97-49d4-9d3e-4174ea9ebfce",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 10,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Gilbert] went to the game with his sister [Adeline]. [Angela] and her daughter [Adeline] went to see a movie yesterday and then got ice cream afterwards. [Samuel] was having trouble with his divorce because he only got to see his daughter [Hattie] a few times a week [Gilbert] has a few children, [Samuel], Bradley and Claire [Nancy] went to dinner with her daughter [Angela]. They then went to the park afterwards.\n\nQuestion: What is the relationship between Hattie and Nancy?",
+          "output": "sister",
+          "metadata_id": "CLUTRR_test_2893ef0d-b305-4ce6-a843-2814014e810b",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 5,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Hattie], who is the sister of [Nancy], is a lovely girl. [Samuel] took his son [Jose] out for pizza. [Nancy] was always arguing with her mother's husband [Samuel]. [Nancy] asked her brother [Gilbert] if he could babysit. When he said no, she asked her sister [Hattie] instead.\n\nQuestion: What is the relationship between Jose and Gilbert?",
+          "output": "grandson",
+          "metadata_id": "CLUTRR_test_378cd575-66cc-466b-aed4-1f58d2d868fc",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 5,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Dorothy] made dinner for her husband [Pedro]. [Laura] takes good care of her grandmother, [Shantel]. [Tracy] and her daughter [Laura] like to look at the stars on clear nights. [Tracy] often borrows the telescope that belongs to her brother, [Pedro], so they can see the stars better.\n\nQuestion: What is the relationship between Dorothy and Shantel?",
+          "output": "mother-in-law",
+          "metadata_id": "CLUTRR_test_3dc3c45f-1f85-4355-baaf-2e4190bc9432",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 4,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Martha] went to dinner with her daughter [Lena]. They then went to the park afterwards. [James] was so proud of his son, [Wesley]. he received a great scholarship to college. [Martha]'s father [Wesley] loves his little princess even though she gets into a lot of trouble at school.\n\nQuestion: What is the relationship between Lena and James?",
+          "output": "father",
+          "metadata_id": "CLUTRR_test_6d2bbd7f-a2c7-4f5d-be77-b13631cebcd2",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [James] likes to visit his sister. Her name is [Jon]. [Daniel] was lucky to have an incredibly close relationship with his grandson, [Ronald]. [Katherine] was eager to spend time with her son, [James]. [Charlsie] bought her mother, [Katherine], a puppy for her birthday. [Katherine] spent a great day shopping with her daughter, [Charlsie]. [Katherine] and her son [Ronald] went out to lunch together yesterday.\n\nQuestion: What is the relationship between Jon and Daniel?",
+          "output": "grandfather",
+          "metadata_id": "CLUTRR_test_b0065e07-f7cf-4578-a323-78f12436194e",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 6,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Ashley] and her grandson [Jacob] went to the store to buy a birthday present for [Jacob]'s sister [Heidi].\n\nQuestion: What is the relationship between Ashley and Heidi?",
+          "output": "granddaughter",
+          "metadata_id": "CLUTRR_test_f8379fd1-245d-4a24-9df6-ccda35a6417e",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Kim] and her sister, [Earline], frequently bicker. However, they always make up quickly. [Melody] took her sister, [Maria], out to dinner for her birthday. [Kim] was excited because today she was going to the zoo with her uncle [James]. [Melody] took her sister, [Alice], and [Alice]'s daughter, [Earline], out for lunch. The food was great and everyone had a good time. [Elizabeth] was afraid of heights just like her daughters, [Maria] and [Marge]. However, [Marge]'s father, [Luis], loved heights and even went sky diving a few times.\n\nQuestion: What is the relationship between Luis and James?",
+          "output": "son",
+          "metadata_id": "CLUTRR_test_c604b43a-c5e5-42c0-9fd1-0a6f52d70ecd",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 8,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [John] wanted to ask his mom, [Marie] if he could go to a sleepover. He asked his grandfather, [Harold] for advice. [Robert] and [Marie], the happy couple, just got married last week. [Robert] told his wife [Marie] to pick up their daughter.\n\nQuestion: What is the relationship between Marie and Harold?",
+          "output": "father-in-law",
+          "metadata_id": "CLUTRR_test_bbda6296-e4a4-46f4-84fb-7d58d87d20c8",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 4,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Erika] 'father [Antonio] became enraged when she failed to complete her homework. [Erika] was grounded for a month and unable to spend time with friends. [Antonio] bought a new dress for his daughter [Erika]. [Antonio]'s mother, [Shantel], took him shopping for a new television [Antonio] asked his wife [Tracy] if she did the shopping.\n\nQuestion: What is the relationship between Tracy and Shantel?",
+          "output": "mother",
+          "metadata_id": "CLUTRR_test_046af756-3997-4bfa-8944-690af4cc6a77",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 4,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Alfred] went to the game with his sister [Bertha]. [Bertha] went to her brother [Alfred]'s birthday party [Bertha] bought her mother, [Jennifer], a puppy for her birthday. [Jennifer] went to her brother [Carlos]'s birthday party [Jennifer] was chopping carrots with her daughter [Bertha] and son [Peter]. [Peter]'s sister [Diane] did not help at all.\n\nQuestion: What is the relationship between Diane and Carlos?",
+          "output": "uncle",
+          "metadata_id": "CLUTRR_test_a67e4138-5654-447c-9703-e5fc33b669f7",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 7,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [William]'s brother [Kenneth] would not let him play the xbox game. [Daniel]'s son, [Alvin], was planning a surprise party for his sister, [Bonnie]. [Bonnie]'s son, [David], was helping with the catering. [Clifton] and his son, [William], went to the supermarket. [David], [Clifton]'s son, had asked them to bring him back some cookies.\n\nQuestion: What is the relationship between Daniel and Kenneth?",
+          "output": "grandson",
+          "metadata_id": "CLUTRR_test_044054de-0354-4164-98c8-c7c7362c668b",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 6,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Mollie] is enjoying dinner with her husband [Jeremy]. [Richard] adored his brother, [Andrew]. [Andrew]'s brother, [Charles], also adored him. [Donald] 'son, [Richard], aced his math class and made his father proud. [Charles] was so happy for his brother, [Jeremy], getting a promotion.\n\nQuestion: What is the relationship between Donald and Mollie?",
+          "output": "daughter-in-law",
+          "metadata_id": "CLUTRR_test_ffc387c1-ae5f-4f28-909b-45dd38dc30fc",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 5,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Harold] was so excited to surprise his son, [Louis], with the tickets to the playoffs. [Louis] bought tickets for him to see the game with his nephew, [Mario]. [Robert] asked his wife [Marie] if she had any news about the family. [Marie] mentioned that her son, [Mario], got straight A's this semester at college.\n\nQuestion: What is the relationship between Robert and Harold?",
+          "output": "father",
+          "metadata_id": "CLUTRR_test_c2ac6df9-2dc8-42bc-b612-3f800807f503",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 4,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Shantel] was mad at her son, [Pedro]. She found he'd been stealing from her purse. [Harold] 'son, [Robert], aced his math class and made his father proud. [Pedro] drove his daughter [Rebecca] to soccer practice. [Harold] loved his granddaughter, [Rebecca].\n\nQuestion: What is the relationship between Shantel and Robert?",
+          "output": "son",
+          "metadata_id": "CLUTRR_test_616cbdea-4ab7-40b9-9405-35d76e8368b3",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 4,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Constance] went to the mall, because she wanted to look for a present for her daughter, [Beatrice]. [Steven] was looking forward to dinner with his granddaughter, [Nadia]. [Dan] has a aunt named [Constance], routinely he went to school with his aunt [Don] and his brother [Sidney] had a tie score. [Sidney] asked his sister, [Beatrice], to come up with a tie-breaker. [Charles] went to the game with his sister [Nadia]. [Orville] got his son, [James], a car for his birthday. [Charles] was thrilled his brother, [Orville], was able to make it to the party. [Cesar] took his dad [Steven] to the game. [Cesar]'s son [Dan] was going to be playing\n\nQuestion: What is the relationship between James and Don?",
+          "output": "nephew",
+          "metadata_id": "CLUTRR_test_04aecf16-fbc8-4e73-ba36-9d80b5070804",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 10,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Samuel] loves talking to his grandfather [Harold] on the phone. [Shantel] and her son, [Louis], went to the park, and had a wonderful time. [Harold] took his daughter, [Tracy], to a baseball game. [Samuel] took his favorite son [Louis] to a baseball game where he caught a foul ball as a souvenir.\n\nQuestion: What is the relationship between Shantel and Tracy?",
+          "output": "daughter",
+          "metadata_id": "CLUTRR_test_77937026-9912-4226-8d55-d08d595fc902",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 4,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Gayle] was afraid of heights just like her daughters, [Susan] and [Patricia]. However, [Patricia]'s father, [Carlos], loved heights and even went sky diving a few times. [Michael] took his sister, [Ethel], to a baseball game. [Paul] took his sister [Susan] out to lunch after learning that she got accepted into her first choice for university. [Ethel] was excited because today she was going to the zoo with her uncle [Carlos]. [Marguerite] loves cooking for her son. His name is [Michael]\n\nQuestion: What is the relationship between Marguerite and Paul?",
+          "output": "nephew",
+          "metadata_id": "CLUTRR_test_c1675f36-89ff-4ea7-9fda-14b6db14d03c",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 7,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Alvin] took his son's [Seth] and [Arthur] to school. [Dorothy] baked some cookies for her son [Arthur] because it was his birthday. [Dorothy] ca n't wait to go on vacation with her son, [Warren] and her father, [Daniel]. [Dorothy] went to her son [Warren]'s House\n\nQuestion: What is the relationship between Seth and Daniel?",
+          "output": "grandfather",
+          "metadata_id": "CLUTRR_test_415d9a37-71b5-42c3-9111-4b79ea3cd81c",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 6,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Victoria] was happy to babysit her niece, [Thelma]. [Thelma] was a great child. [William] was so proud of his son, [Henry]. he received a great scholarship to college. [William] took his daughter [Thelma] to cheer practice. [Henry] and [Benito] were both still very upset with their mother, [Melanie].\n\nQuestion: What is the relationship between Melanie and Victoria?",
+          "output": "sister",
+          "metadata_id": "CLUTRR_test_38abb0a3-3ad0-418b-a1e0-f29b5aa761b0",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 5,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Clarence] and his grandson [Robert] are seeing the new movie together. [Heidi] planned a trip to the zoo for her brother, [Robert]. They had a great time.\n\nQuestion: What is the relationship between Clarence and Heidi?",
+          "output": "granddaughter",
+          "metadata_id": "CLUTRR_test_a075e73a-a8cb-4d0a-aef1-878644bcb99a",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Donna] took her daughter [Marie] and son [Wallace] to the beach. [Marie] was sad that her sister [Helen] could n't go with them. [Bonita] loves her son [Frank] very much. He loves her, too. [Kyle]'s wife, [Bonita], had car problems which led him to miss dinner with his father, [Charles]. [John] and his uncle [Frank] went to the county fair and went on the ferris wheel [Mark] was out with his son [Wallace]. Later that day they went to see [Mark]'s father, [Charles].\n\nQuestion: What is the relationship between Helen and John?",
+          "output": "uncle",
+          "metadata_id": "CLUTRR_test_dac6984f-8316-469e-bf33-49bb3d1ebb48",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 9,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Margaret] was happy to babysit her niece, [Nadia]. [Nadia] was a great child. [James] and his daughter [Nadia] took a day off school to go to the zoo. [Teresita] asked her mother [Elsie] if she could go outside and play with her friends. [Nora] decided to give her uncle, [James], a call on his birthday. [Elsie] was excited to visit her son, [Cesar], at college. [Margaret] spent a great day shopping with her daughter, [Teresita]. [Stanley] was so happy for his brother, [Sidney], getting a promotion. [Sidney]'s mother, [Constance], waited impatiently for him at the diner. [Patrice]'s sister [Constance] was trying on new make-up that [Patrice]'s daughter [Nora] bought for her as a gift.\n\nQuestion: What is the relationship between Stanley and Cesar?",
+          "output": "uncle",
+          "metadata_id": "CLUTRR_test_1548b064-0450-4c20-80e3-4510773c3cb9",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 10,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Leslie] went to dinner with her daughter [Maria]. They then went to the park afterwards. [Marge] spent a great day shopping with her daughter, [Jodi]. [Marge] was happy to babysit her niece, [Leslie]. [Leslie] was a great child. [Jodi] went to her aunt [Maria]'s house for dinner. [Maria] made meatloaf, and it was delicious. [Marge] went to her son [Orlando]'s House [Alice] asked her mother, [Elizabeth], what they were going to have for lunch. [Elizabeth] went to the mall, because she wanted to look for a present for her daughter, [Melody]. [Marge], who is the sister of [Melody], is a lovely girl.\n\nQuestion: What is the relationship between Alice and Orlando?",
+          "output": "nephew",
+          "metadata_id": "CLUTRR_test_118bcfc1-94e4-46e5-83a8-d012d33f8dcd",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 8,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Susan] had picked her daughter [Betty] out the cutest new dress to wear on her birthday. [Ronald] is taking his wife [Susan] out to dinner for their date tonight. [Kyle] was playing checkers with his brother [Ronald]. [Kyle]'s sister [Willie] was waiting to play. [Wallace] took his son [Mark] out to play gold later that night. [Willie] went to the store with her sister [Donna] [Donna] took her daughter [Leah] to the ice cream parlor after school for a sweet treat. Since [Leah] gets out of school earlier than her brother [Wallace], he missed out on the trip to get ice cream. [Betty] wanted to visit her grandmother [Danielle], but [Danielle] was asleep.\n\nQuestion: What is the relationship between Mark and Danielle?",
+          "output": "mother",
+          "metadata_id": "CLUTRR_test_8919d833-9664-4e88-befc-8271726028cf",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 9,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [James] bought his son, [Lucas], a new video game for his birthday. [Lucas] wanted his sister, [Leslie], and [Leslie]'s brother, [Jeffery], to play the game with him. [Dallas] played basketball with his brother [James]. [Shana] and her sister [Katherine] took their brother [David] to the hardware store. [David] was repairing his mother [Melody]'s front porch. [Shana] was excited because she was meeting her father, [Dallas], for lunch.\n\nQuestion: What is the relationship between Melody and Jeffery?",
+          "output": "nephew",
+          "metadata_id": "CLUTRR_test_987b81da-9fa9-4352-8c28-bc31460f3389",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 8,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Amanda] wanted to meet with her brother, [Timothy], but she had to cancel when her sister, [Thelma], had an emergency that she needed to attend to. [Santa] and her sister [Betty] took their brother [Stephen] to the hardware store. [Stephen] was repairing his mother [Susan]'s front porch. [John] 'son, [Timothy], aced his math class and made his father proud. [Willie] was excited to visit her son, [Timothy], at college. [Thelma] watched a golf tournament with her aunt [Susan]. [Willie]'s son, [Timothy], had to stay home from school with a cold.\n\nQuestion: What is the relationship between John and Santa?",
+          "output": "niece",
+          "metadata_id": "CLUTRR_test_a1294cc7-e2fd-4943-9887-f030b7d65db5",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 9,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Timothy] took his sister [April] out to lunch after learning that she got accepted into her first choice for university. [Ashley] loves making hot cocoa for her son's daughter. Her name is [April].\n\nQuestion: What is the relationship between Ashley and Timothy?",
+          "output": "grandson",
+          "metadata_id": "CLUTRR_test_e69c7dc1-4485-4d93-985f-aff33a9c8b30",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        }
+      ]
+    },
+    {
+      "dataset": "ProofWriter",
+      "examples": [
+        {
+          "input": "Context: The cat chases the cow. The cat is rough. The cat does not need the cow. The cow eats the cat. The dog is round. The dog does not need the cow. The dog needs the squirrel. The squirrel does not chase the cow. The squirrel eats the cow. The squirrel is kind. The squirrel is red. The squirrel is round. If someone needs the cat then the cat needs the cow. If the squirrel is nice and the squirrel eats the cat then the squirrel does not eat the dog. If someone chases the cat then they eat the squirrel. If someone eats the cat then they need the squirrel. If someone is kind then they chase the squirrel. If someone needs the squirrel then they chase the cat. If someone needs the cat and the cat does not chase the cow then the cat chases the dog. If the dog needs the cat and the cat does not chase the squirrel then the squirrel chases the cow.\n\nQuestion: The cow is red.",
+          "output": "Unknown",
+          "metadata_id": "ProofWriter_qdep0_14",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The cat eats the cow. The cat is rough. The cat likes the cow. The cat likes the rabbit. The cat likes the squirrel. The cow eats the squirrel. The cow is big. The cow needs the cat. The rabbit eats the squirrel. The rabbit needs the cow. The squirrel eats the cow. The squirrel is rough. If someone is big and cold then they eat the cat. All big people are cold. If someone needs the squirrel and the squirrel likes the cow then the squirrel needs the rabbit. All rough people are big. If someone needs the squirrel then they are rough. If someone needs the rabbit and they need the cat then they eat the cow. If someone likes the rabbit and they eat the cow then the cow eats the cat. If the squirrel is blue then the squirrel needs the cow.\n\nQuestion: The cat is big.",
+          "output": "True",
+          "metadata_id": "ProofWriter_qdep1_8",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bear is big. The bear is blue. The bear is cold. The bear is green. The bear is red. If someone is red then they are cold. If someone is cold then they are big. If someone is red and big then they are cold. If the bear is green and the bear is red then the bear is big. All red people are big. Cold, blue people are big. Blue people are green. Cold people are big.\n\nQuestion: The bear does not need the bear.",
+          "output": "Unknown",
+          "metadata_id": "ProofWriter_qdep0_22",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Eric wears all blue. They always call him rough Fred. You think Harry is only rough, cold and blue, but I know he is also young, round and kind. A green, inexperienced person with a round shape who is kind to others gets very red when in the sun. Young, round people seem to be big in our experience. A big person with cold, rough skin is going to be green as well. Anybody that is blue, red and cold will also be round, for sure. Whenever someone is kind as well as round and cold, they will definitely be blue. Nice young people who are always cold end up also being big.\n\nQuestion: Harry is not green.",
+          "output": "False",
+          "metadata_id": "ProofWriter_qdep2_24",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Charlie is blue. If Charlie is smart and Charlie is not round then Charlie is furry. If Charlie is round then Charlie is red. If someone is round and not smart then they are furry. If someone is big then they are furry. All white people are furry. If Charlie is round then Charlie is blue.\n\nQuestion: Charlie is blue.",
+          "output": "True",
+          "metadata_id": "ProofWriter_qdep0_4",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bald eagle is cold. The bald eagle likes the rabbit. The cow likes the bald eagle. The lion is cold. The lion likes the bald eagle. The lion likes the cow. The lion needs the bald eagle. The rabbit is red. The rabbit sees the bald eagle. The rabbit sees the cow. All red people are cold. If the lion needs the bald eagle then the bald eagle is young. If someone is young then they need the lion.\n\nQuestion: The rabbit is red.",
+          "output": "True",
+          "metadata_id": "ProofWriter_qdep0_13",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The dog eats the squirrel. The dog is not rough. The mouse chases the dog. The mouse eats the squirrel. The mouse is not cold. The mouse is rough. The squirrel eats the dog. The squirrel does not eat the mouse. The squirrel does not like the dog. The squirrel likes the mouse. If something eats the dog and the dog likes the mouse then the mouse eats the dog. If the mouse likes the dog then the mouse is rough. If something eats the mouse and it eats the squirrel then it chases the squirrel. If something is rough then it chases the squirrel. If something eats the squirrel and it eats the mouse then it likes the mouse. If the mouse chases the dog then the dog eats the mouse.\n\nQuestion: The mouse does not eat the dog.",
+          "output": "False",
+          "metadata_id": "ProofWriter_qdep3_1",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Anne is round. Anne is smart. Bob is blue. Bob is cold. Bob is furry. Bob is green. Charlie is cold. Charlie is green. Charlie is round. Charlie is smart. Gary is green. Gary is quiet. If something is quiet and furry then it is cold. If Bob is blue and Bob is green then Bob is smart. All round, blue things are furry. If Gary is green then Gary is smart. If Bob is round then Bob is smart. If something is cold then it is quiet. Smart things are blue. If something is round and blue then it is green. Blue, green things are round.\n\nQuestion: Anne is not furry.",
+          "output": "False",
+          "metadata_id": "ProofWriter_qdep2_5",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The cat is big. The cat likes the dog. The cat sees the rabbit. The dog chases the rabbit. The rabbit chases the cat. The rabbit is round. The rabbit likes the tiger. The rabbit sees the cat. The tiger chases the rabbit. The tiger sees the dog. If something is round then it likes the cat. If something sees the cat then it likes the rabbit. If something likes the cat and it sees the rabbit then the cat likes the tiger. If something likes the dog then the dog is big. If the rabbit is blue then the rabbit sees the tiger. If something is big and it sees the dog then it likes the cat. If something likes the rabbit and it sees the cat then it sees the rabbit. If something sees the cat then it is red.\n\nQuestion: The dog is not red.",
+          "output": "Unknown",
+          "metadata_id": "ProofWriter_qdep1_19",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bear eats the rabbit. The bear eats the tiger. The bear needs the rabbit. The cow eats the rabbit. The cow is big. The rabbit chases the tiger. The rabbit eats the bear. The rabbit eats the cow. The rabbit needs the cow. The tiger eats the bear. The tiger is blue. If someone chases the cow then they eat the bear. If the bear chases the rabbit then the rabbit is red. If someone is red then they chase the bear. If someone chases the tiger and the tiger eats the bear then the tiger chases the bear. If someone eats the bear then they need the bear. If someone needs the bear then the bear is kind. If someone is big then they need the cow. If someone is kind then they chase the cow.\n\nQuestion: The bear does not chase the cow.",
+          "output": "False",
+          "metadata_id": "ProofWriter_qdep3_18",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The lion is cold. If the lion is cold then the lion is green.\n\nQuestion: The lion is green.",
+          "output": "True",
+          "metadata_id": "ProofWriter_qdep1_15",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Dave is not quiet. Dave is red. Dave is young. Harry is furry. Harry is quiet. Harry is not round. Harry is not young. If Harry is young then Harry is round. Young people are big. If someone is young and big then they are furry. If Dave is red and Dave is not round then Dave is big. If Harry is not furry then Harry is not red. If someone is white and young then they are not quiet. Red, furry people are not white. Quiet people are not white.\n\nQuestion: Dave is white.",
+          "output": "False",
+          "metadata_id": "ProofWriter_qdep3_2",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Because Bob gets cold easily he tends to appear round from bundling up. Red Dave is what folks call him, because he is quite red. Most people see Fred as round, albeit nice and big at the same time. People who know Harry know he's red, kind, young, cold, blue and big. A blue colored, nice but rough person is definitely young too. People who always wear red and act in a kind manner towards everyone they meet also have a round body. Have you noticed that green and round folks are also so young. Rough people will often be blue.  They thrive on being kind and nice. It's always true that round, kind people are rough as well. It's true that green and blue people are also red people. Those who are round and cold are young.\n\nQuestion: Harry is rough.",
+          "output": "True",
+          "metadata_id": "ProofWriter_qdep2_15",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bald eagle chases the cow. The bald eagle is blue. The bald eagle is red. The bear chases the rabbit. The bear eats the bald eagle. The bear is young. The bear likes the rabbit. The cow is young. The cow likes the bear. The rabbit eats the bear. If something is young and it eats the bald eagle then the bald eagle is nice. If the bear is nice and the bear chases the cow then the cow is nice. If the cow is blue then the cow is young. If something eats the rabbit and it chases the rabbit then it eats the cow. If something is nice and red then it chases the bear. If the cow eats the rabbit then the cow likes the rabbit. If the rabbit is blue then the rabbit is nice. If something is nice then it chases the cow.\n\nQuestion: The cow eats the cow.",
+          "output": "Unknown",
+          "metadata_id": "ProofWriter_qdep1_24",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Bob wears all blue. Dave gets red when he is mad and tends to act very cold. People who know Fred know he's red, kind, young, cold, blue and big. Gary's skin turned blue and green in a lab accident.  Despite his outward appearance, he is really nice. I have found that blue, kind people are big. Interestingly, cold and rough people are kind. When someone feels cold, while being big and rough, they always turn out to be red. When a person's traits are to be big, blue and cold, they will also have a red trait. People who are cold to others can also be nice and when they are it's a sure bet they are being big about it. Looking blue can be a sign that someone is cold. A person with the qualities of being cold and being red will also be a person that is green.\n\nQuestion: Gary is big.",
+          "output": "True",
+          "metadata_id": "ProofWriter_qdep2_23",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bear eats the tiger. The bear visits the tiger. The dog is kind. The mouse chases the bear. The tiger chases the dog. The tiger does not chase the mouse. The tiger eats the bear. If something chases the bear then it is red. If the tiger eats the bear and the bear visits the dog then the tiger is kind. If something is young then it eats the mouse. If something visits the tiger and it chases the tiger then the tiger is big. If the dog does not eat the bear then the bear visits the dog. If something eats the dog and it eats the bear then the bear does not visit the mouse.\n\nQuestion: The dog is not kind.",
+          "output": "False",
+          "metadata_id": "ProofWriter_qdep0_24",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bald eagle is big. The bald eagle likes the cow. The bald eagle likes the rabbit. The bald eagle needs the cow. The bald eagle sees the lion. The cow is big. The cow likes the rabbit. The lion is round. The lion likes the bald eagle. The lion likes the rabbit. The lion needs the cow. The rabbit likes the cow. The rabbit likes the lion. The rabbit needs the cow. The rabbit needs the lion. The rabbit sees the lion. If the rabbit sees the cow then the rabbit likes the lion. If someone is nice then they like the lion. If someone is big and they like the bald eagle then they are round. If the rabbit is nice then the rabbit needs the cow. If someone needs the lion and the lion needs the cow then they see the bald eagle. If someone sees the bald eagle then they are big. If someone is big and they like the lion then the lion is big. If someone needs the cow then the cow likes the bald eagle.\n\nQuestion: The bald eagle does not like the lion.",
+          "output": "Unknown",
+          "metadata_id": "ProofWriter_qdep1_7",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bald eagle chases the cat. The bald eagle needs the cat. The bald eagle sees the rabbit. The cat chases the cow. The cat chases the rabbit. The cat is red. The cow sees the cat. The rabbit is blue. The rabbit is red. The rabbit needs the cow. The rabbit sees the bald eagle. The rabbit sees the cat. If something chases the cow and it chases the rabbit then the cow needs the rabbit. If something needs the cow then the cow chases the rabbit. If something is cold and it needs the bald eagle then it chases the bald eagle. If something needs the bald eagle and it sees the cow then it chases the bald eagle. If something chases the cat then the cat is red. If the bald eagle needs the cow then the bald eagle chases the cow.\n\nQuestion: The cow does not see the cat.",
+          "output": "False",
+          "metadata_id": "ProofWriter_qdep0_5",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Anne is furry. Anne is quiet. Anne is round. Anne is smart. Gary is quiet. Gary is red. Gary is rough. Quiet people are round. If Gary is rough and Gary is round then Gary is furry. Rough, round people are red. If Gary is nice and Gary is smart then Gary is furry. If Gary is quiet then Gary is red. If Gary is red and Gary is rough then Gary is round. Round people are rough. Furry people are smart.\n\nQuestion: Gary is smart.",
+          "output": "True",
+          "metadata_id": "ProofWriter_qdep3_15",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Gary is cold. Gary is green. Gary is white. Blue, green people are cold. All white people are green. All cold, green people are furry. If Gary is furry and Gary is cold then Gary is nice. If Gary is white and Gary is green then Gary is cold. Blue, white people are furry. Blue, white people are furry. If Gary is nice then Gary is blue.\n\nQuestion: Gary is not white.",
+          "output": "False",
+          "metadata_id": "ProofWriter_qdep0_0",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "ProofWriter",
+          "metadata_split": "train"
+        }
+      ]
+    },
+    {
+      "dataset": "RuleTaker",
+      "examples": [
+        {
+          "input": "Context: Harry is nice. If something is round then it is big. All round, kind things are big. If something is furry then it is big. All furry, round things are blue. Nice things are round. If something is kind then it is green. Furry things are nice. If something is nice and blue then it is furry.\n\nQuestion: Harry is big.",
+          "output": "True",
+          "metadata_id": "RuleTaker_depth-2_16",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bear is blue. The bear is kind. The bear is red. The bear does not see the mouse. The bear sees the tiger. The bear visits the mouse. The bear visits the tiger. The mouse eats the bear. The mouse is cold. The mouse sees the bear. The mouse does not visit the bear. The mouse does not visit the tiger. The tiger eats the bear. The tiger does not see the bear. The tiger sees the mouse. If someone is kind then they do not see the mouse. If someone is cold then they are kind.\n\nQuestion: The bear sees the bear.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-2_18",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The cat chases the lion. The cat eats the lion. The cat is big. The cat is cold. The cat is green. The cat is not nice. The cat is not red. The cat does not see the lion. The lion is red. The lion sees the cat. If someone is green then they see the cat. If someone is nice then they do not eat the lion. If someone is red and cold then they chase the lion. If someone chases the cat and the cat is cold then they eat the lion. If someone sees the cat then they chase the lion. If someone is green then they eat the cat. If someone chases the lion and the lion is not nice then they are green. If the cat chases the lion and someone does not see the cat then they are not nice.\n\nQuestion: The lion is not green.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-3_12",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bald eagle eats the rabbit. The bald eagle sees the rabbit. The bald eagle visits the dog. The bear is cold. The bear does not see the rabbit. The dog is cold. The rabbit is round. If something visits the bald eagle then the bald eagle eats the dog. If the bald eagle sees the rabbit and the rabbit does not eat the dog then the bald eagle does not visit the bear. If something eats the dog and the dog eats the bear then it sees the rabbit. If something does not visit the rabbit then the rabbit sees the bear. If something does not visit the bear then it does not visit the bald eagle. All cold, rough things are green. If something eats the dog and it does not visit the rabbit then the dog is not rough. If the rabbit sees the bear then the bear eats the dog.\n\nQuestion: The bear is green.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-3_17",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Charlie is young. Erin is cold. Fiona is nice. If something is young then it is blue. If something is blue and not cold then it is nice. Young things are big. If something is big and not cold then it is nice. If something is nice then it is not cold. If something is not blue and not nice then it is big.\n\nQuestion: Erin is blue.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-3_19",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bald eagle chases the cow. The bald eagle chases the squirrel. The bald eagle is green. The bald eagle is kind. The bald eagle needs the squirrel. The bear chases the squirrel. The bear is green. The bear is nice. The bear needs the cow. The bear needs the squirrel. The cow eats the bear. The squirrel chases the cow. The squirrel eats the cow. The squirrel is nice. The squirrel needs the cow. If someone eats the squirrel then they need the bald eagle. If the squirrel eats the bald eagle and the squirrel is not rough then the bald eagle chases the bear. If someone chases the squirrel then they eat the squirrel. If someone needs the bald eagle and they chase the bear then the bear is green. If someone needs the bald eagle and they chase the cow then the bald eagle needs the bear. If someone needs the bear and the bear needs the squirrel then the squirrel is kind.\n\nQuestion: The squirrel eats the squirrel.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-3_10",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The cat chases the squirrel. The cat is not blue. The cat is cold. The cat is not green. The cat is red. The cat is young. The cat likes the squirrel. The cat sees the squirrel. The squirrel chases the cat. The squirrel is not blue. The squirrel is cold. The squirrel is not green. The squirrel is red. The squirrel is young. The squirrel does not like the cat. The squirrel does not see the cat. If something is not red then it does not like the cat. If something is young then it chases the cat.\n\nQuestion: The squirrel is not cold.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-1_0",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bear is rough. The cow is green. The tiger is big. If someone eats the cow and they chase the tiger then they do not eat the tiger. If someone is not rough then they visit the tiger. If someone visits the cow and the cow does not visit the tiger then the cow visits the bear.\n\nQuestion: The bear is rough.",
+          "output": "True",
+          "metadata_id": "RuleTaker_depth-1_21",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Anne is not cold. Bob is cold. Bob is not round. Dave is blue. Dave is nice. Fiona is round. Fiona is young. Big, young things are cold. If something is not blue then it is big. All round things are big.\n\nQuestion: Dave is not round.",
+          "output": "True",
+          "metadata_id": "RuleTaker_depth-2_5",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The mouse is not big. The mouse is cold. The mouse is not nice. The mouse is red. The mouse is round. Cold things are not nice. If something is not round then it is cold. If something is round then it is cold.\n\nQuestion: The mouse is round.",
+          "output": "True",
+          "metadata_id": "RuleTaker_depth-0_8",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The squirrel is young. If someone is round then they are red. Young people are round.\n\nQuestion: The squirrel is not young.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-1_17",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The cat visits the lion. The cat visits the squirrel. The lion chases the cat. The lion is rough. The lion needs the squirrel. The lion visits the cat. The lion visits the squirrel. The squirrel chases the lion. The squirrel is blue. The squirrel needs the lion. If something needs the lion then it chases the squirrel. If something is young and it needs the cat then the cat chases the lion. If the lion is blue then the lion needs the cat. If something is young and it visits the squirrel then the squirrel visits the lion. If something needs the squirrel and the squirrel does not need the lion then it is green. If the lion visits the squirrel then the lion is blue. If something is young and it does not need the lion then the lion visits the squirrel. If something is not green then it is young.\n\nQuestion: The squirrel does not chase the cat.",
+          "output": "True",
+          "metadata_id": "RuleTaker_depth-3_4",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The cat does not chase the cow. The cat is blue. The cat is not green. The cat is red. The cat is round. The cat is young. The cat likes the cow. The cat does not see the cow. The cow chases the cat. The cow is not blue. The cow is green. The cow is red. The cow is round. The cow is young. The cow likes the cat. The cow sees the cat. If something is not green then it chases the cat.\n\nQuestion: The cat chases the cow.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-1_15",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The bear is not nice. The mouse chases the bear. The tiger does not chase the bear. If someone chases the mouse then they do not chase the bear. If someone chases the bear then they visit the bear. Round people are nice. If someone chases the bear and they visit the bear then they are round. If someone chases the bear and the bear needs the tiger then they do not visit the mouse. If someone is blue and they do not visit the tiger then they are round.\n\nQuestion: The tiger does not visit the tiger.",
+          "output": "True",
+          "metadata_id": "RuleTaker_depth-3_9",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The tiger is round. If something is rough and red then it is nice. Nice things are red.\n\nQuestion: The tiger is rough.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-0_15",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 0,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Dave is big. Dave is cold. Dave is quiet. Dave is rough. Dave is smart. Dave is white. Gary is big. Gary is cold. Gary is rough. Gary is smart. Harry is cold. Harry is nice. Harry is quiet. Harry is rough. Harry is smart. Harry is white. All smart, rough people are big. If Harry is white then Harry is quiet. All smart people are rough. White, rough people are big. White, rough people are nice. If Gary is quiet and Gary is big then Gary is white.\n\nQuestion: Dave is nice.",
+          "output": "True",
+          "metadata_id": "RuleTaker_depth-1_13",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Anne is big. Anne is furry. Anne is round. Anne is young. Erin is blue. Erin is furry. Erin is white. Harry is furry. Harry is round. Harry is white. All blue things are cold. If something is furry and round then it is blue.\n\nQuestion: Harry is not furry.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-2_14",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Anne is furry. Dave is young. Erin is furry. Harry is not smart. If something is smart and green then it is big. If something is furry and red then it is young. If Erin is nice and Erin is green then Erin is red. If Harry is not red and Harry is not green then Harry is furry. If something is big and not young then it is not green. If something is red and not young then it is big.\n\nQuestion: Erin is big.",
+          "output": "False",
+          "metadata_id": "RuleTaker_depth-1_14",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: Dave is blue. Dave is furry. Dave is green. Dave is kind. Dave is red. Dave is smart. Dave is white. Harry is green. Harry is smart. Harry is white. All red people are smart. All kind, furry people are white. Furry, white people are red. If someone is white and furry then they are kind. All smart, green people are furry. Red people are blue. If someone is white and red then they are smart. All green, kind people are furry.\n\nQuestion: Harry is furry.",
+          "output": "True",
+          "metadata_id": "RuleTaker_depth-2_2",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        },
+        {
+          "input": "Context: The lion chases the mouse. The lion chases the squirrel. The lion is not round. The lion needs the squirrel. The lion sees the squirrel. The mouse chases the lion. The mouse chases the squirrel. The mouse does not need the lion. The mouse needs the squirrel. The mouse sees the lion. The squirrel does not chase the lion. The squirrel is round. The squirrel needs the lion. The squirrel needs the mouse. The squirrel does not see the lion. If something chases the lion and it sees the mouse then it needs the lion. If something is not young then it chases the squirrel. If the lion sees the squirrel and something does not need the lion then the squirrel is round.\n\nQuestion: The squirrel chases the squirrel.",
+          "output": "True",
+          "metadata_id": "RuleTaker_depth-1_16",
+          "metadata_domain": "explicit_rule",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "RuleTaker",
+          "metadata_split": "train"
+        }
+      ]
+    },
+    {
+      "dataset": "bAbI_qa15",
+      "examples": [
+        {
+          "input": "Context: Mice are afraid of sheep.\nEmily is a mouse.\nCats are afraid of wolves.\nSheep are afraid of wolves.\nWinona is a mouse.\nWolves are afraid of sheep.\nJessica is a wolf.\nGertrude is a cat.\n\n\nQuestion: What is gertrude afraid of?",
+          "output": "wolf",
+          "metadata_id": "bAbI_qa15_test_25",
+          "metadata_domain": "deduction",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "bAbI_qa15",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: Mice are afraid of wolves.\nCats are afraid of wolves.\nWolves are afraid of mice.\nEmily is a mouse.\nWinona is a mouse.\nGertrude is a mouse.\nJessica is a wolf.\nSheep are afraid of mice.\n\n\nQuestion: What is emily afraid of?",
+          "output": "wolf",
+          "metadata_id": "bAbI_qa15_test_18",
+          "metadata_domain": "deduction",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "bAbI_qa15",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: Mice are afraid of wolves.\nEmily is a mouse.\nSheep are afraid of mice.\nWolves are afraid of cats.\nGertrude is a wolf.\nCats are afraid of mice.\nWinona is a mouse.\nJessica is a mouse.\n\n\nQuestion: What is jessica afraid of?",
+          "output": "wolf",
+          "metadata_id": "bAbI_qa15_test_17",
+          "metadata_domain": "deduction",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "bAbI_qa15",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: Cats are afraid of mice.\nMice are afraid of cats.\nEmily is a mouse.\nWolves are afraid of sheep.\nJessica is a mouse.\nGertrude is a cat.\nWinona is a wolf.\nSheep are afraid of cats.\n\n\nQuestion: What is emily afraid of?",
+          "output": "cat",
+          "metadata_id": "bAbI_qa15_test_4",
+          "metadata_domain": "deduction",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "bAbI_qa15",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: Cats are afraid of sheep.\nSheep are afraid of cats.\nGertrude is a cat.\nJessica is a cat.\nMice are afraid of wolves.\nWinona is a cat.\nEmily is a cat.\nWolves are afraid of sheep.\n\n\nQuestion: What is emily afraid of?",
+          "output": "sheep",
+          "metadata_id": "bAbI_qa15_test_6",
+          "metadata_domain": "deduction",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "bAbI_qa15",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: Sheep are afraid of cats.\nJessica is a sheep.\nWolves are afraid of cats.\nMice are afraid of sheep.\nCats are afraid of sheep.\nGertrude is a mouse.\nWinona is a cat.\nEmily is a sheep.\n\n\nQuestion: What is gertrude afraid of?",
+          "output": "sheep",
+          "metadata_id": "bAbI_qa15_test_13",
+          "metadata_domain": "deduction",
+          "metadata_hop_count": 1,
+          "metadata_source_dataset": "bAbI_qa15",
+          "metadata_split": "test"
+        }
+      ]
+    },
+    {
+      "dataset": "bAbI_qa2",
+      "examples": [
+        {
+          "input": "Context: Sandra journeyed to the kitchen.\nSandra went back to the bedroom.\nDaniel went back to the garden.\nDaniel travelled to the bathroom.\nJohn moved to the bathroom.\nMary went to the bedroom.\nMary travelled to the office.\nMary journeyed to the hallway.\nJohn went to the bedroom.\nDaniel moved to the garden.\nDaniel grabbed the apple there.\nJohn travelled to the kitchen.\nDaniel travelled to the bedroom.\nJohn picked up the milk there.\nMary moved to the bathroom.\nJohn grabbed the football there.\nSandra journeyed to the hallway.\nSandra journeyed to the kitchen.\nDaniel went to the hallway.\nDaniel journeyed to the kitchen.\nJohn journeyed to the bathroom.\nJohn left the football.\n\n\nQuestion: Where is the football?",
+          "output": "bathroom",
+          "metadata_id": "bAbI_qa2_test_24",
+          "metadata_domain": "causal",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "bAbI_qa2",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: Sandra travelled to the office.\nJohn journeyed to the bedroom.\nJohn travelled to the hallway.\nMary moved to the bathroom.\nJohn journeyed to the kitchen.\nMary picked up the football there.\nMary left the football.\nMary picked up the football there.\nMary went back to the hallway.\nDaniel journeyed to the hallway.\nJohn took the milk there.\nJohn discarded the milk.\nMary put down the football.\nDaniel got the football there.\nDaniel travelled to the bedroom.\nDaniel left the football.\nSandra moved to the bathroom.\nSandra got the apple there.\n\n\nQuestion: Where is the football?",
+          "output": "bedroom",
+          "metadata_id": "bAbI_qa2_test_11",
+          "metadata_domain": "causal",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "bAbI_qa2",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: Sandra picked up the apple there.\nSandra put down the apple.\nSandra moved to the bathroom.\nDaniel went to the kitchen.\nSandra went to the bedroom.\nJohn went to the kitchen.\nDaniel journeyed to the hallway.\nSandra journeyed to the bathroom.\nSandra took the milk there.\nSandra went to the office.\n\n\nQuestion: Where is the milk?",
+          "output": "office",
+          "metadata_id": "bAbI_qa2_test_19",
+          "metadata_domain": "causal",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "bAbI_qa2",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: John went to the garden.\nMary journeyed to the bedroom.\nDaniel journeyed to the bedroom.\nMary journeyed to the bathroom.\nDaniel went back to the hallway.\nDaniel picked up the football there.\nDaniel journeyed to the bathroom.\nDaniel travelled to the kitchen.\nDaniel journeyed to the office.\nDaniel grabbed the milk there.\nJohn moved to the hallway.\nMary grabbed the apple there.\nDaniel discarded the milk.\nDaniel took the milk there.\nMary discarded the apple.\nJohn went to the office.\nMary grabbed the apple there.\nDaniel left the football.\n\n\nQuestion: Where is the football?",
+          "output": "office",
+          "metadata_id": "bAbI_qa2_test_18",
+          "metadata_domain": "causal",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "bAbI_qa2",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: Mary journeyed to the office.\nJohn grabbed the apple there.\nJohn left the apple.\nMary went back to the bathroom.\nJohn grabbed the apple there.\nMary went back to the garden.\nJohn put down the apple.\nDaniel got the milk there.\nDaniel went back to the hallway.\nJohn journeyed to the office.\nDaniel went back to the garden.\nMary got the apple there.\n\n\nQuestion: Where is the milk?",
+          "output": "garden",
+          "metadata_id": "bAbI_qa2_test_9",
+          "metadata_domain": "causal",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "bAbI_qa2",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: Daniel moved to the bedroom.\nDaniel went to the bathroom.\nJohn moved to the garden.\nMary travelled to the bedroom.\nSandra travelled to the garden.\nDaniel journeyed to the garden.\nSandra travelled to the hallway.\nJohn got the football there.\nJohn moved to the bathroom.\nSandra travelled to the bathroom.\n\n\nQuestion: Where is the football?",
+          "output": "bathroom",
+          "metadata_id": "bAbI_qa2_test_12",
+          "metadata_domain": "causal",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "bAbI_qa2",
+          "metadata_split": "test"
+        }
+      ]
+    },
+    {
+      "dataset": "bAbI_qa3",
+      "examples": [
+        {
+          "input": "Context: Mary went back to the garden.\nSandra went to the hallway.\nJohn travelled to the bathroom.\nMary took the milk there.\nSandra journeyed to the bedroom.\nSandra moved to the hallway.\nSandra went back to the bedroom.\nDaniel moved to the office.\nMary discarded the milk.\nSandra went to the garden.\nSandra moved to the hallway.\nSandra got the football.\nMary travelled to the kitchen.\nJohn moved to the garden.\nJohn moved to the hallway.\nSandra took the apple.\nSandra discarded the football there.\nSandra went to the bathroom.\nDaniel travelled to the hallway.\nJohn picked up the football there.\nDaniel moved to the kitchen.\nDaniel journeyed to the bedroom.\nMary went back to the bathroom.\nJohn put down the football there.\nJohn took the football there.\nMary moved to the bedroom.\nSandra left the apple.\nSandra took the apple there.\nMary journeyed to the office.\nSandra dropped the apple.\nMary moved to the bathroom.\nMary travelled to the garden.\nMary went to the office.\nSandra grabbed the apple there.\nSandra put down the apple.\nJohn put down the football.\nSandra travelled to the office.\nDaniel went to the hallway.\nDaniel went back to the garden.\nSandra travelled to the hallway.\nMary went back to the garden.\nDaniel went back to the bathroom.\nMary moved to the bathroom.\nDaniel got the apple.\nJohn got the football there.\nSandra journeyed to the garden.\nJohn moved to the office.\nSandra went to the hallway.\nJohn went back to the hallway.\nDaniel left the apple.\nMary grabbed the apple there.\nDaniel went back to the hallway.\nJohn dropped the football.\nMary moved to the hallway.\nSandra journeyed to the bedroom.\nMary got the football there.\nSandra moved to the office.\nSandra travelled to the garden.\nMary put down the football.\nJohn went back to the kitchen.\nMary went to the bedroom.\nDaniel travelled to the bedroom.\nDaniel went back to the kitchen.\nSandra got the milk.\nSandra dropped the milk.\nJohn went back to the garden.\nJohn travelled to the hallway.\nDaniel went back to the bedroom.\nDaniel moved to the garden.\nSandra took the milk.\nJohn took the football.\nSandra discarded the milk there.\nSandra went to the hallway.\nMary put down the apple.\n\n\nQuestion: Where was the apple before the bedroom?",
+          "output": "hallway",
+          "metadata_id": "bAbI_qa3_test_0",
+          "metadata_domain": "causal",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "bAbI_qa3",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: Sandra moved to the bathroom.\nJohn went to the bathroom.\nSandra got the apple.\nMary moved to the office.\nSandra went to the hallway.\nDaniel travelled to the hallway.\nSandra dropped the apple.\nDaniel picked up the apple.\nDaniel discarded the apple there.\nSandra moved to the kitchen.\nSandra went back to the office.\nJohn moved to the office.\nDaniel journeyed to the garden.\nSandra went to the bedroom.\nSandra went to the bathroom.\nSandra went to the hallway.\nSandra journeyed to the office.\nMary moved to the bathroom.\nSandra moved to the bathroom.\nMary went back to the office.\nMary travelled to the bedroom.\nJohn moved to the bedroom.\nDaniel went to the hallway.\nDaniel went to the bedroom.\nMary went back to the kitchen.\nDaniel went to the bathroom.\nJohn journeyed to the garden.\nSandra moved to the kitchen.\nMary took the milk.\nMary discarded the milk.\nJohn travelled to the bathroom.\nJohn went to the hallway.\nJohn got the apple.\nDaniel went to the garden.\nDaniel went back to the kitchen.\nJohn put down the apple.\nSandra moved to the garden.\nJohn got the apple.\nSandra travelled to the hallway.\nJohn discarded the apple.\nMary got the football.\nSandra took the apple.\nMary put down the football.\nJohn went to the bedroom.\nMary moved to the hallway.\nJohn went to the bathroom.\nSandra put down the apple there.\nDaniel picked up the football.\nMary took the apple there.\nMary went back to the kitchen.\nDaniel went back to the hallway.\nMary travelled to the garden.\n\n\nQuestion: Where was the apple before the garden?",
+          "output": "kitchen",
+          "metadata_id": "bAbI_qa3_test_19",
+          "metadata_domain": "causal",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "bAbI_qa3",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: Mary went to the bedroom.\nDaniel went to the garden.\nJohn moved to the bathroom.\nDaniel moved to the bathroom.\nDaniel got the football.\nJohn went back to the bedroom.\nSandra moved to the bathroom.\nMary travelled to the bathroom.\nDaniel travelled to the hallway.\nDaniel moved to the bathroom.\nDaniel discarded the football.\nMary moved to the bedroom.\nDaniel got the football.\nJohn went back to the hallway.\nDaniel put down the football.\nDaniel grabbed the football.\nDaniel discarded the football there.\nSandra went to the office.\nDaniel journeyed to the office.\nDaniel moved to the kitchen.\nMary travelled to the garden.\nJohn went to the bathroom.\nJohn journeyed to the bedroom.\nJohn went to the office.\nDaniel journeyed to the bedroom.\nMary went to the office.\nSandra went back to the kitchen.\nJohn travelled to the kitchen.\nJohn went to the office.\nSandra moved to the hallway.\nDaniel went back to the garden.\nSandra grabbed the apple.\nDaniel travelled to the bathroom.\nSandra journeyed to the bedroom.\nSandra moved to the kitchen.\nJohn went to the kitchen.\nDaniel journeyed to the bedroom.\nSandra moved to the garden.\nMary journeyed to the kitchen.\nSandra put down the apple.\nSandra went back to the office.\nJohn travelled to the garden.\n\n\nQuestion: Where was the apple before the garden?",
+          "output": "kitchen",
+          "metadata_id": "bAbI_qa3_test_9",
+          "metadata_domain": "causal",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "bAbI_qa3",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: John moved to the bathroom.\nSandra took the apple there.\nDaniel journeyed to the hallway.\nJohn journeyed to the hallway.\nJohn went to the kitchen.\nSandra moved to the bedroom.\nSandra went back to the garden.\nSandra grabbed the football.\nJohn travelled to the office.\nJohn grabbed the milk.\nDaniel went back to the office.\nSandra dropped the apple.\n\n\nQuestion: Where was the apple before the garden?",
+          "output": "bedroom",
+          "metadata_id": "bAbI_qa3_test_6",
+          "metadata_domain": "causal",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "bAbI_qa3",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: John went back to the bathroom.\nMary moved to the kitchen.\nMary went to the hallway.\nMary travelled to the office.\nJohn travelled to the bedroom.\nSandra went back to the kitchen.\nMary travelled to the bedroom.\nDaniel moved to the bedroom.\nDaniel went back to the hallway.\nMary moved to the hallway.\nJohn went back to the bathroom.\nSandra moved to the garden.\nJohn went to the bedroom.\nJohn moved to the bathroom.\nSandra grabbed the milk.\nJohn grabbed the football.\nSandra travelled to the bedroom.\nJohn left the football.\nDaniel went to the bathroom.\nSandra went back to the kitchen.\nMary travelled to the office.\nMary moved to the garden.\nMary got the apple.\nJohn travelled to the kitchen.\nJohn journeyed to the bedroom.\nSandra discarded the milk.\nDaniel took the football there.\nDaniel went to the garden.\nJohn travelled to the office.\nSandra took the milk.\nSandra left the milk.\nSandra grabbed the milk.\nDaniel travelled to the bathroom.\nDaniel put down the football there.\nSandra journeyed to the bathroom.\nSandra got the football.\nDaniel moved to the kitchen.\nSandra moved to the hallway.\nMary put down the apple there.\nMary grabbed the apple.\nMary dropped the apple there.\nSandra travelled to the garden.\nSandra discarded the football there.\nSandra put down the milk.\n\n\nQuestion: Where was the football before the garden?",
+          "output": "hallway",
+          "metadata_id": "bAbI_qa3_test_13",
+          "metadata_domain": "causal",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "bAbI_qa3",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: Daniel picked up the apple.\nSandra journeyed to the office.\nSandra moved to the kitchen.\nDaniel went back to the garden.\nMary picked up the milk.\nJohn journeyed to the hallway.\nJohn went to the kitchen.\nMary put down the milk.\nDaniel dropped the apple.\nMary grabbed the milk.\nMary went back to the bedroom.\nMary went to the office.\n\n\nQuestion: Where was the milk before the office?",
+          "output": "bedroom",
+          "metadata_id": "bAbI_qa3_test_25",
+          "metadata_domain": "causal",
+          "metadata_hop_count": 3,
+          "metadata_source_dataset": "bAbI_qa3",
+          "metadata_split": "test"
+        }
+      ]
+    }
+  ]
+}

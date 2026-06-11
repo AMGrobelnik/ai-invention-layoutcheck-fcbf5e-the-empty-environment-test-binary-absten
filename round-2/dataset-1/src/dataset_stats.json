@@ -1,0 +1,23 @@
+{
+  "total_examples": 600,
+  "by_dataset": {
+    "clutrr_v1": 200,
+    "hotpotqa": 200,
+    "2wikimultihopqa": 200
+  },
+  "by_fold": {
+    "train": 420,
+    "val": 90,
+    "test": 90
+  },
+  "by_domain": {
+    "kinship_reasoning": 200,
+    "wikipedia_multihop": 400
+  },
+  "by_l1_ambiguity_level": {
+    "none": 200,
+    "low": 200,
+    "high": 55,
+    "medium": 145
+  }
+}

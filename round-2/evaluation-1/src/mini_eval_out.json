@@ -1,0 +1,857 @@
+{
+  "metadata": {
+    "evaluation_name": "ATMS Hallucination Meter Iter-1 Rigorous Evaluation",
+    "n_instances": 48,
+    "proportions_ci": [
+      {
+        "metric": "empty_env_precision_our_method",
+        "count": 9,
+        "nobs": 10,
+        "proportion": 0.9,
+        "ci_lower": 0.59585,
+        "ci_upper": 0.982124
+      },
+      {
+        "metric": "accuracy_answered_our_method",
+        "count": 10,
+        "nobs": 11,
+        "proportion": 0.909091,
+        "ci_lower": 0.622642,
+        "ci_upper": 0.983768
+      },
+      {
+        "metric": "accuracy_all_our_method",
+        "count": 17,
+        "nobs": 48,
+        "proportion": 0.354167,
+        "ci_lower": 0.234336,
+        "ci_upper": 0.495609
+      },
+      {
+        "metric": "abstain_rate",
+        "count": 37,
+        "nobs": 48,
+        "proportion": 0.770833,
+        "ci_lower": 0.634607,
+        "ci_upper": 0.866922
+      },
+      {
+        "metric": "l1_grounding_rate",
+        "count": 48,
+        "nobs": 48,
+        "proportion": 1.0,
+        "ci_lower": 0.9259,
+        "ci_upper": 1.0
+      },
+      {
+        "metric": "accuracy_all_cot",
+        "count": 42,
+        "nobs": 48,
+        "proportion": 0.875,
+        "ci_lower": 0.752995,
+        "ci_upper": 0.941429
+      },
+      {
+        "metric": "accuracy_all_linc",
+        "count": 43,
+        "nobs": 48,
+        "proportion": 0.895833,
+        "ci_lower": 0.778326,
+        "ci_upper": 0.954678
+      },
+      {
+        "metric": "accuracy_all_problog",
+        "count": 41,
+        "nobs": 48,
+        "proportion": 0.854167,
+        "ci_lower": 0.728328,
+        "ci_upper": 0.927518
+      }
+    ],
+    "arc_results": {
+      "our_method": {
+        "auc": 0.446644,
+        "ci_lower": 0.25353,
+        "ci_upper": 0.624004
+      },
+      "cot": {
+        "auc": 0.125,
+        "ci_lower": 0.125,
+        "ci_upper": 0.125,
+        "note": "Baselines lack per-instance confidence; ARC = flat error rate"
+      },
+      "linc": {
+        "auc": 0.104167,
+        "ci_lower": 0.104167,
+        "ci_upper": 0.104167,
+        "note": "Baselines lack per-instance confidence; ARC = flat error rate"
+      },
+      "problog": {
+        "auc": 0.145833,
+        "ci_lower": 0.145833,
+        "ci_upper": 0.145833,
+        "note": "Baselines lack per-instance confidence; ARC = flat error rate"
+      }
+    },
+    "cwa_table": [
+      {
+        "method": "our_method",
+        "coverage_target": 0.1,
+        "n_answered": 4,
+        "accuracy": 1.0,
+        "ci_lower": 0.510109,
+        "ci_upper": 1.0
+      },
+      {
+        "method": "cot",
+        "coverage_target": 0.1,
+        "n_answered": 4,
+        "accuracy": 0.75,
+        "ci_lower": 0.300642,
+        "ci_upper": 0.954413
+      },
+      {
+        "method": "linc",
+        "coverage_target": 0.1,
+        "n_answered": 4,
+        "accuracy": 0.5,
+        "ci_lower": 0.150039,
+        "ci_upper": 0.849961
+      },
+      {
+        "method": "problog",
+        "coverage_target": 0.1,
+        "n_answered": 4,
+        "accuracy": 0.5,
+        "ci_lower": 0.150039,
+        "ci_upper": 0.849961
+      },
+      {
+        "method": "our_method",
+        "coverage_target": 0.229,
+        "n_answered": 10,
+        "accuracy": 0.9,
+        "ci_lower": 0.59585,
+        "ci_upper": 0.982124
+      },
+      {
+        "method": "cot",
+        "coverage_target": 0.229,
+        "n_answered": 10,
+        "accuracy": 0.7,
+        "ci_lower": 0.396778,
+        "ci_upper": 0.892209
+      },
+      {
+        "method": "linc",
+        "coverage_target": 0.229,
+        "n_answered": 10,
+        "accuracy": 0.6,
+        "ci_lower": 0.312674,
+        "ci_upper": 0.83182
+      },
+      {
+        "method": "problog",
+        "coverage_target": 0.229,
+        "n_answered": 10,
+        "accuracy": 0.7,
+        "ci_lower": 0.396778,
+        "ci_upper": 0.892209
+      },
+      {
+        "method": "our_method",
+        "coverage_target": 0.5,
+        "n_answered": 24,
+        "accuracy": 0.416667,
+        "ci_lower": 0.244676,
+        "ci_upper": 0.611653
+      },
+      {
+        "method": "cot",
+        "coverage_target": 0.5,
+        "n_answered": 24,
+        "accuracy": 0.791667,
+        "ci_lower": 0.595295,
+        "ci_upper": 0.907552
+      },
+      {
+        "method": "linc",
+        "coverage_target": 0.5,
+        "n_answered": 24,
+        "accuracy": 0.791667,
+        "ci_lower": 0.595295,
+        "ci_upper": 0.907552
+      },
+      {
+        "method": "problog",
+        "coverage_target": 0.5,
+        "n_answered": 24,
+        "accuracy": 0.875,
+        "ci_lower": 0.689961,
+        "ci_upper": 0.956557
+      },
+      {
+        "method": "our_method",
+        "coverage_target": 1.0,
+        "n_answered": 48,
+        "accuracy": 0.354167,
+        "ci_lower": 0.234336,
+        "ci_upper": 0.495609
+      },
+      {
+        "method": "cot",
+        "coverage_target": 1.0,
+        "n_answered": 48,
+        "accuracy": 0.875,
+        "ci_lower": 0.752995,
+        "ci_upper": 0.941429
+      },
+      {
+        "method": "linc",
+        "coverage_target": 1.0,
+        "n_answered": 48,
+        "accuracy": 0.895833,
+        "ci_lower": 0.778326,
+        "ci_upper": 0.954678
+      },
+      {
+        "method": "problog",
+        "coverage_target": 1.0,
+        "n_answered": 48,
+        "accuracy": 0.854167,
+        "ci_lower": 0.728328,
+        "ci_upper": 0.927518
+      }
+    ],
+    "spearman_rho": 0.628726,
+    "spearman_p": 2e-06,
+    "auroc_assumption_load": {
+      "auroc": 0.77704,
+      "ci_lower": 0.649391,
+      "ci_upper": 0.891866
+    },
+    "calibration_by_load_stratum": [
+      {
+        "stratum": "load=0 (empty-env)",
+        "n": 10,
+        "n_correct": 9,
+        "fraction_correct": 0.9,
+        "ci_lower": 0.59585,
+        "ci_upper": 0.982124,
+        "underpowered": false
+      },
+      {
+        "stratum": "load=1",
+        "n": 1,
+        "n_correct": 1,
+        "fraction_correct": 1.0,
+        "ci_lower": 0.206549,
+        "ci_upper": 1.0,
+        "underpowered": true
+      },
+      {
+        "stratum": "load=inf",
+        "n": 37,
+        "n_correct": 7,
+        "fraction_correct": 0.189189,
+        "ci_lower": 0.0948,
+        "ci_upper": 0.342047,
+        "underpowered": false
+      }
+    ],
+    "l1_degradation_theorem": {
+      "statement": "Let epsilon_L1 be the per-atom L1 grounding error rate (probability any given atom is incorrectly grounded), with grounding errors independent across atoms. For an empty-environment derivation requiring a chain of k atoms: P(derivation fully correct) >= (1 - epsilon_L1)^k. Therefore empty-environment precision >= (1 - epsilon_L1)^k_max, where k_max is the maximum chain length in the derivation.",
+      "union_bound": "precision_EE >= 1 - k * epsilon_L1",
+      "jensen_bound": "E[precision_EE] >= exp(-epsilon_L1 * k_bar) for mean depth k_bar",
+      "instantiation_04_k3": 0.884736,
+      "instantiation_04_k3_union_bound": 0.88,
+      "observed_epsilon_l1": 0.0,
+      "note": "With observed epsilon_L1=0.0 (all instances L1-verified), the bound collapses to 1.0. The bound is non-trivial for epsilon_L1 > 0: e.g., epsilon_L1=0.04 (Path-of-Thoughts 95.9% triplet accuracy), k=3 hops → lower bound = (0.96)^3 = 0.885."
+    },
+    "atms_problog_divergence": [
+      {
+        "dataset": "clutrr",
+        "input_snippet": "Document: John married Mary. Mary is Lisa's mother. John is Peter's father.\n\nQuery: Are Lisa and Pet",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "clutrr",
+        "input_snippet": "Document: Tom is Jane's father. Jane is Ann's mother. Ann is Sue's mother.\n\nQuery: Is Tom Sue's grea",
+        "gold": "yes",
+        "predict_atms": "yes",
+        "predict_problog": "no",
+        "atms_correct": true,
+        "problog_correct": false
+      },
+      {
+        "dataset": "clutrr",
+        "input_snippet": "Document: Emily is David's sister. David is Frank's son.\n\nQuery: Is Emily Frank's daughter?",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "clutrr",
+        "input_snippet": "Document: Sam is Kate's uncle. Kate is Lily's mother.\n\nQuery: Is Sam Lily's great-uncle?",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "clutrr",
+        "input_snippet": "Document: Paul is Sarah's grandfather. Sarah has a brother named Jake.\n\nQuery: Is Paul Jake's grandf",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "clutrr",
+        "input_snippet": "Document: Maria is Carlos's mother. Carlos is Ana's husband.\n\nQuery: Is Maria Ana's mother-in-law?",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "clutrr",
+        "input_snippet": "Document: Lucy is Mark's daughter. Mark is Susan's brother.\n\nQuery: Is Susan Lucy's aunt?",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "clutrr",
+        "input_snippet": "Document: Bob is Alice's father. Alice is Charlie's mother. Charlie is Dana's father.\n\nQuery: Is Bob",
+        "gold": "yes",
+        "predict_atms": "yes",
+        "predict_problog": "no",
+        "atms_correct": true,
+        "problog_correct": false
+      },
+      {
+        "dataset": "babi",
+        "input_snippet": "Document: Sandra went to the garden. Mary traveled to the office. Sandra moved to the kitchen.\n\nQuer",
+        "gold": "no",
+        "predict_atms": "yes",
+        "predict_problog": "no",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "babi",
+        "input_snippet": "Document: John went to the bedroom. Sandra went to the bedroom.\n\nQuery: Are John and Sandra in the s",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "babi",
+        "input_snippet": "Document: Daniel traveled to the office. Daniel picked up the football. Daniel moved to the kitchen.",
+        "gold": "yes",
+        "predict_atms": "yes",
+        "predict_problog": "no",
+        "atms_correct": true,
+        "problog_correct": false
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: In Smith v. Jones (2021), the court ruled that Smith, who is the landlord of the disputed ",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: In Smith v. Jones (2021), the court ruled that Smith, who is the landlord of the disputed ",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: In Smith v. Jones (2021), the court ruled that Smith, who is the landlord of the disputed ",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: The company TechCorp announced that CEO Alice Brown would resign effective January 2024. T",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: The company TechCorp announced that CEO Alice Brown would resign effective January 2024. T",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: The company TechCorp announced that CEO Alice Brown would resign effective January 2024. T",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: Goldilocks entered the house of the three bears. She found three bowls of porridge. She ta",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: The contract between Acme Corp and Widget Ltd stipulates that Widget Ltd must deliver 500 ",
+        "gold": "no",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": true,
+        "problog_correct": false
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: The contract between Acme Corp and Widget Ltd stipulates that Widget Ltd must deliver 500 ",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: The contract between Acme Corp and Widget Ltd stipulates that Widget Ltd must deliver 500 ",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: Jack and Jill went up the hill to fetch a pail of water. Jack fell down and broke his crow",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: Jack and Jill went up the hill to fetch a pail of water. Jack fell down and broke his crow",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: Mayor Thompson signed the new zoning ordinance on March 15. The ordinance restricts buildi",
+        "gold": "no",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": true,
+        "problog_correct": false
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: Mayor Thompson signed the new zoning ordinance on March 15. The ordinance restricts buildi",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: Mayor Thompson signed the new zoning ordinance on March 15. The ordinance restricts buildi",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: Dr. Chen is the head of the cardiology department at City Hospital. The hospital is accred",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: Dr. Chen is the head of the cardiology department at City Hospital. The hospital is accred",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: Dr. Chen is the head of the cardiology department at City Hospital. The hospital is accred",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: The treaty was signed between Nation A and Nation B in 2018. Under the treaty, Nation A ag",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: The treaty was signed between Nation A and Nation B in 2018. Under the treaty, Nation A ag",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: The Red Riding Hood went to visit her grandmother who lived in the forest. Her mother told",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: The Red Riding Hood went to visit her grandmother who lived in the forest. Her mother told",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: The Red Riding Hood went to visit her grandmother who lived in the forest. Her mother told",
+        "gold": "no",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": true,
+        "problog_correct": false
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: Plaintiff Martinez filed suit against Defendant Corp for breach of contract in June 2023. ",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      },
+      {
+        "dataset": "custom",
+        "input_snippet": "Document: Plaintiff Martinez filed suit against Defendant Corp for breach of contract in June 2023. ",
+        "gold": "yes",
+        "predict_atms": "no",
+        "predict_problog": "yes",
+        "atms_correct": false,
+        "problog_correct": true
+      }
+    ],
+    "atms_correct_on_divergent": 6,
+    "problog_correct_on_divergent": 30,
+    "per_dataset_metrics": {
+      "babi": {
+        "accuracy_our_method": 0.75,
+        "n": 8,
+        "accuracy_cot": 0.75,
+        "accuracy_linc": 0.75,
+        "accuracy_problog": 0.875
+      },
+      "clutrr": {
+        "accuracy_our_method": 0.4,
+        "n": 10,
+        "accuracy_cot": 0.8,
+        "accuracy_linc": 0.8,
+        "accuracy_problog": 0.8
+      },
+      "custom": {
+        "accuracy_our_method": 0.233333,
+        "n": 30,
+        "accuracy_cot": 0.933333,
+        "accuracy_linc": 0.966667,
+        "accuracy_problog": 0.866667
+      }
+    },
+    "figure_paths": [
+      "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_r4ZXzXG-rGek/3_invention_loop/iter_2/gen_art/gen_art_evaluation_1/figures/risk_coverage.png",
+      "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_r4ZXzXG-rGek/3_invention_loop/iter_2/gen_art/gen_art_evaluation_1/figures/calibration_by_load.png",
+      "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_r4ZXzXG-rGek/3_invention_loop/iter_2/gen_art/gen_art_evaluation_1/figures/cwa_vs_coverage.png"
+    ]
+  },
+  "metrics_agg": {
+    "n_instances": 48,
+    "empty_env_precision": 0.9,
+    "accuracy_answered_our_method": 0.909091,
+    "accuracy_all_our_method": 0.354167,
+    "abstain_rate": 0.770833,
+    "l1_grounding_rate": 1.0,
+    "accuracy_all_cot": 0.875,
+    "accuracy_all_linc": 0.895833,
+    "accuracy_all_problog": 0.854167,
+    "arc_our_method": 0.446644,
+    "arc_cot": 0.125,
+    "arc_linc": 0.104167,
+    "arc_problog": 0.145833,
+    "spearman_rho": 0.628726,
+    "spearman_p": 2e-06,
+    "auroc_assumption_load": 0.77704,
+    "atms_correct_on_divergent": 6.0,
+    "problog_correct_on_divergent": 30.0,
+    "n_divergent_instances": 36.0,
+    "observed_epsilon_l1": 0.0,
+    "l1_bound_eps04_k3": 0.884736
+  },
+  "datasets": [
+    {
+      "dataset": "clutrr",
+      "examples": [
+        {
+          "input": "Document: Alice is Bob's mother. Bob is Carol's father.\n\nQuery: Is Alice Carol's grandmother?",
+          "output": "yes",
+          "predict_our_method": "yes",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "2",
+          "metadata_assumption_load": "0.0",
+          "metadata_empty_env_derivable": "True",
+          "metadata_n_choice_points": "2",
+          "metadata_cumulative_cost_usd": "0.00146",
+          "metadata_wall_clock_sec": "6.077",
+          "metadata_l1_grounding_verified": "True",
+          "eval_correct_our_method": 1.0,
+          "eval_correct_cot": 1.0,
+          "eval_correct_linc": 1.0,
+          "eval_correct_problog": 1.0,
+          "eval_abstained": 0.0,
+          "eval_assumption_load_clipped": 0.0
+        },
+        {
+          "input": "Document: John married Mary. Mary is Lisa's mother. John is Peter's father.\n\nQuery: Are Lisa and Peter siblings?",
+          "output": "yes",
+          "predict_our_method": "no",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "2",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "4",
+          "metadata_cumulative_cost_usd": "0.00149",
+          "metadata_wall_clock_sec": "4.658",
+          "metadata_l1_grounding_verified": "True",
+          "eval_correct_our_method": 0.0,
+          "eval_correct_cot": 1.0,
+          "eval_correct_linc": 1.0,
+          "eval_correct_problog": 1.0,
+          "eval_abstained": 1.0,
+          "eval_assumption_load_clipped": 10.0
+        },
+        {
+          "input": "Document: Tom is Jane's father. Jane is Ann's mother. Ann is Sue's mother.\n\nQuery: Is Tom Sue's great-grandfather?",
+          "output": "yes",
+          "predict_our_method": "yes",
+          "predict_cot": "yes",
+          "predict_linc": "no",
+          "predict_problog": "no",
+          "metadata_hop_count": "3",
+          "metadata_assumption_load": "0.0",
+          "metadata_empty_env_derivable": "True",
+          "metadata_n_choice_points": "3",
+          "metadata_cumulative_cost_usd": "0.00143",
+          "metadata_wall_clock_sec": "8.618",
+          "metadata_l1_grounding_verified": "True",
+          "eval_correct_our_method": 1.0,
+          "eval_correct_cot": 1.0,
+          "eval_correct_linc": 0.0,
+          "eval_correct_problog": 0.0,
+          "eval_abstained": 0.0,
+          "eval_assumption_load_clipped": 0.0
+        }
+      ]
+    },
+    {
+      "dataset": "babi",
+      "examples": [
+        {
+          "input": "Document: Mary traveled to the office. John went to the kitchen. Mary went to the garden.\n\nQuery: Is Mary in the garden?",
+          "output": "yes",
+          "predict_our_method": "yes",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "1",
+          "metadata_assumption_load": "0.0",
+          "metadata_empty_env_derivable": "True",
+          "metadata_n_choice_points": "2",
+          "metadata_cumulative_cost_usd": "0.0021",
+          "metadata_wall_clock_sec": "26.055",
+          "metadata_l1_grounding_verified": "True",
+          "eval_correct_our_method": 1.0,
+          "eval_correct_cot": 1.0,
+          "eval_correct_linc": 1.0,
+          "eval_correct_problog": 1.0,
+          "eval_abstained": 0.0,
+          "eval_assumption_load_clipped": 0.0
+        },
+        {
+          "input": "Document: Daniel went to the bedroom. Sandra traveled to the office. Daniel moved to the kitchen.\n\nQuery: Is Daniel in the kitchen?",
+          "output": "yes",
+          "predict_our_method": "yes",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "1",
+          "metadata_assumption_load": "0.0",
+          "metadata_empty_env_derivable": "True",
+          "metadata_n_choice_points": "3",
+          "metadata_cumulative_cost_usd": "0.00211",
+          "metadata_wall_clock_sec": "20.392",
+          "metadata_l1_grounding_verified": "True",
+          "eval_correct_our_method": 1.0,
+          "eval_correct_cot": 1.0,
+          "eval_correct_linc": 1.0,
+          "eval_correct_problog": 1.0,
+          "eval_abstained": 0.0,
+          "eval_assumption_load_clipped": 0.0
+        },
+        {
+          "input": "Document: John picked up the football. John went to the bedroom. John dropped the football.\n\nQuery: Is the football in the bedroom?",
+          "output": "yes",
+          "predict_our_method": "yes",
+          "predict_cot": "no",
+          "predict_linc": "no",
+          "predict_problog": "yes",
+          "metadata_hop_count": "2",
+          "metadata_assumption_load": "0.0",
+          "metadata_empty_env_derivable": "True",
+          "metadata_n_choice_points": "2",
+          "metadata_cumulative_cost_usd": "0.00283",
+          "metadata_wall_clock_sec": "5.641",
+          "metadata_l1_grounding_verified": "True",
+          "eval_correct_our_method": 1.0,
+          "eval_correct_cot": 0.0,
+          "eval_correct_linc": 0.0,
+          "eval_correct_problog": 1.0,
+          "eval_abstained": 0.0,
+          "eval_assumption_load_clipped": 0.0
+        }
+      ]
+    },
+    {
+      "dataset": "custom",
+      "examples": [
+        {
+          "input": "Document: In Smith v. Jones (2021), the court ruled that Smith, who is the landlord of the disputed property, had failed to provide adequate notice before eviction. The tenant, Jones, had lived at the property for five years. The judge, Honorable Williams, ordered compensation of $5,000.\n\nQuery: Does Smith own the disputed property?",
+          "output": "yes",
+          "predict_our_method": "no",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "1",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "3",
+          "metadata_cumulative_cost_usd": "0.00347",
+          "metadata_wall_clock_sec": "12.038",
+          "metadata_l1_grounding_verified": "True",
+          "eval_correct_our_method": 0.0,
+          "eval_correct_cot": 1.0,
+          "eval_correct_linc": 1.0,
+          "eval_correct_problog": 1.0,
+          "eval_abstained": 1.0,
+          "eval_assumption_load_clipped": 10.0
+        },
+        {
+          "input": "Document: In Smith v. Jones (2021), the court ruled that Smith, who is the landlord of the disputed property, had failed to provide adequate notice before eviction. The tenant, Jones, had lived at the property for five years. The judge, Honorable Williams, ordered compensation of $5,000.\n\nQuery: Was Jones evicted without proper notice?",
+          "output": "yes",
+          "predict_our_method": "no",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "2",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "3",
+          "metadata_cumulative_cost_usd": "0.00352",
+          "metadata_wall_clock_sec": "10.501",
+          "metadata_l1_grounding_verified": "True",
+          "eval_correct_our_method": 0.0,
+          "eval_correct_cot": 1.0,
+          "eval_correct_linc": 1.0,
+          "eval_correct_problog": 1.0,
+          "eval_abstained": 1.0,
+          "eval_assumption_load_clipped": 10.0
+        },
+        {
+          "input": "Document: In Smith v. Jones (2021), the court ruled that Smith, who is the landlord of the disputed property, had failed to provide adequate notice before eviction. The tenant, Jones, had lived at the property for five years. The judge, Honorable Williams, ordered compensation of $5,000.\n\nQuery: Did the judge award Jones money?",
+          "output": "yes",
+          "predict_our_method": "no",
+          "predict_cot": "yes",
+          "predict_linc": "yes",
+          "predict_problog": "yes",
+          "metadata_hop_count": "2",
+          "metadata_assumption_load": "inf",
+          "metadata_empty_env_derivable": "False",
+          "metadata_n_choice_points": "6",
+          "metadata_cumulative_cost_usd": "0.00363",
+          "metadata_wall_clock_sec": "15.374",
+          "metadata_l1_grounding_verified": "True",
+          "eval_correct_our_method": 0.0,
+          "eval_correct_cot": 1.0,
+          "eval_correct_linc": 1.0,
+          "eval_correct_problog": 1.0,
+          "eval_abstained": 1.0,
+          "eval_assumption_load_clipped": 10.0
+        }
+      ]
+    }
+  ]
+}

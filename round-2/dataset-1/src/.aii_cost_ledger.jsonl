@@ -1,0 +1,11 @@
+{"ts": 1780975710.926236, "tool": "aii_web_tools__search", "cost_usd": 0.001, "query": "facebook bAbI tasks QA dataset Weston NLP", "count": 3}
+{"ts": 1780975718.4404805, "tool": "aii_web_tools__search", "cost_usd": 0.001, "query": "2WikiMultihopQA multi-hop reasoning dataset Ho 2020", "count": 5}
+{"ts": 1780975718.4633427, "tool": "aii_web_tools__search", "cost_usd": 0.001, "query": "CLUTRR_v1_extracted kendrivp HuggingFace kinship", "count": 5}
+{"ts": 1780975718.5694482, "tool": "aii_web_tools__search", "cost_usd": 0.001, "query": "facebook bAbI tasks QA dataset Weston NLP benchmark", "count": 5}
+{"ts": 1780975718.6021647, "tool": "aii_web_tools__search", "cost_usd": 0.001, "query": "CLUTRR kinship reasoning dataset Sinha Sodhani 2019", "count": 5}
+{"ts": 1780975718.8588161, "tool": "aii_web_tools__search", "cost_usd": 0.001, "query": "HotpotQA multi-hop question answering dataset Yang 2018", "count": 5}
+{"ts": 1780975719.2437558, "tool": "aii_web_tools__search", "cost_usd": 0.001, "query": "natural-questions-short cjlovering HuggingFace dataset", "count": 5}
+{"ts": 1780975721.1361868, "tool": "aii_web_tools__search", "cost_usd": 0.001, "query": "CLUTRR compositional language understanding text relational reasoning Sinha 2019 ACL", "count": 4}
+{"ts": 1780975721.1628134, "tool": "aii_web_tools__search", "cost_usd": 0.001, "query": "HotpotQA Yang 2018 multi-hop question answering Wikipedia dataset EMNLP", "count": 4}
+{"ts": 1780975721.1954215, "tool": "aii_web_tools__search", "cost_usd": 0.001, "query": "2WikiMultihopQA Ho 2020 COLING multi-hop reasoning benchmark dataset", "count": 4}
+{"ts": 1780975723.2313943, "tool": "aii_web_tools__search", "cost_usd": 0.001, "query": "bAbI tasks 20 Facebook AI Research Weston 2015 QA benchmark", "count": 4}

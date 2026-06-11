@@ -1,0 +1,11 @@
+{
+  "title": "Bounded ATMS Iter-2: Matched-Coverage Baselines and 70B Ablation",
+  "layman_summary": "Tests whether a logic-based reasoning system (bounded ATMS) answers questions more accurately than LLM baselines at the same answer-coverage rate, validated on 342 instances across three reasoning datasets.",
+  "summary": "This artifact extends the iter-1 bounded ATMS hallucination-metering pipeline with three new analyses on 342 instances from the unified CLUTRR + RuleTaker + ProofWriter benchmark.\n\n**Matched-coverage baselines (H3):** For each baseline (CoT, LINC, ProbLog), we sweep confidence thresholds to match ATMS's natural 22.9% coverage rate, then compare accuracy. A random-oracle baseline (100 seeds) provides the null hypothesis. This rules out the random-abstention confound from iter-1.\n\n**Assumption-load stratification (H2):** Instances are binned by ATMS assumption_load (λ=0,1,2,≥3,∞). Error rates and Spearman ρ are reported per stratum. Strata with <30 instances are flagged as underpowered.\n\n**ATMS-vs-ProbLog divergence:** Instances where ATMS and ProbLog disagree are annotated with ground-truth outcomes (which method was correct), providing the ground-truth comparison missing from iter-1's 4/48 divergence count.\n\n**70B model ablation:** The full pipeline is re-run with meta-llama/llama-3.1-70b-instruct on a stratified 150-instance subset (50 per dataset), contingent on remaining budget >$3.\n\n**Infrastructure:** All LLM calls via OpenRouter with aiohttp async (Semaphore(8)), cumulative cost tracking enforced against $8 cap. Loguru file+stdout logging. NaN guards throughout metrics. Output saved to full_method_out.json following exp_gen_sol_out schema.",
+  "out_expected_files": {
+    "script": "method.py",
+    "full_output": "full_method_out.json",
+    "mini_output": "mini_method_out.json",
+    "preview_output": "preview_method_out.json"
+  }
+}

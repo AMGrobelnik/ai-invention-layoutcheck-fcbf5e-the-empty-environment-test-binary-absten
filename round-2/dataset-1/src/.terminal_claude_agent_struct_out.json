@@ -1,0 +1,15 @@
+{
+  "title": "L1 Grounding Ambiguity Multi-Hop Dataset: CLUTRR + HotpotQA + 2WikiMultihopQA",
+  "layman_summary": "A 600-example benchmark spanning three datasets — kinship stories, Wikipedia QA, and Wikidata QA — annotated with ambiguity levels (none to high) to study how AI models handle unclear entity references in multi-step reasoning.",
+  "summary": "This artifact provides a unified 600-example dataset for studying L1 grounding ambiguity in multi-hop reasoning. Three datasets are selected and standardized to the exp_sel_data_out schema:\n\n1. **clutrr_v1** (200 examples): CLUTRR kinship-chain reasoning, hops 3–8, filtered from 39,385 eligible rows. Each example presents a short story with named characters and asks for a target kinship relation. Gold atomic facts encode (predicate, args) pairs from story_edges. metadata_l1_ambiguity_level=none — no coreference or predicate ambiguity; entities are uniquely named.\n\n2. **hotpotqa** (200 examples): HotpotQA distractor-type Wikipedia multi-hop QA. Each example includes 10 Wikipedia passages (2 supporting, 8 distractors), the question, and a short factoid answer. Supporting passages marked with [SUPPORTING] prefix. Gold atomic facts encode (supports, title→answer) with character span offsets. metadata_l1_ambiguity_level=low — mild coreference in Wikipedia prose but explicit supporting fact labels.\n\n3. **2wikimultihopqa** (200 examples): 2WikiMultihopQA with both bridge (l1_ambiguity=medium) and comparison (l1_ambiguity=high) question types. Each example includes Wikipedia context passages plus structured Wikidata evidence triples [subj, pred, obj]. Gold atomic facts derived from evidences triples with span offsets. hop_count=2 for bridge, 3 for comparison.\n\nAll examples share the schema: input (document + question), output (answer), metadata_id, metadata_fold (70/15/15 train/val/test split), metadata_domain, metadata_hop_count, metadata_l1_ambiguity_level, metadata_gold_atomic_facts (JSON-encoded list of {predicate, args, span_start, span_end}).\n\nFold distribution: train=420, val=90, test=90. L1 ambiguity distribution: none=200 (clutrr), low=200 (hotpotqa), medium+high=200 (2wiki mix). Schema validated against exp_sel_data_out. File size 2.4MB, well within 100MB limit. bAbI task1 was evaluated and dropped — it provides only 1-hop location tracking with zero ambiguity, contributing no signal to the grounding-ambiguity research objective.\n\nDependencies: loguru==0.7.3 (all other deps are Python stdlib). Script uses random.seed(42) for reproducibility.",
+  "out_expected_files": {
+    "script": "data.py",
+    "datasets": [
+      {
+        "full": ["full_data_out.json"],
+        "mini": "mini_data_out.json",
+        "preview": "preview_data_out.json"
+      }
+    ]
+  }
+}

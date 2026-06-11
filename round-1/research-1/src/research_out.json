@@ -1,0 +1,271 @@
+{
+  "title": "Implementation Survey: Bounded ATMS, Baselines, OpenRouter Models, CLUTRR Splits",
+  "summary": "Comprehensive implementation-ready survey covering: (1) Python ATMS repos and bounded label-propagation pseudocode; (2) LINC/Logic-LM/PoT/ProbLog baseline repo interfaces; (3) OpenRouter model IDs and pricing; (4) CLUTRR per-hop statistics and stratified subsampling plan.",
+
+  "atms_implementation": {
+    "best_repo": {
+      "name": "Ruggiero-Santo/NATMS",
+      "url": "https://github.com/Ruggiero-Santo/NATMS",
+      "description": "Python ATMS with negation extension (NATMS). Extends de Kleer's general labeling algorithm. More complete than FellnerDotDev variant (also incomplete). Contains ATMS.py with UPDATE, WEAVE, PROPAGATE, NOGOOD functions. Labels are set[frozenset].",
+      "completeness": "Implements core algorithm. Missing: depth cap, explicit size bound on label growth."
+    },
+    "secondary_repo": {
+      "name": "FellnerDotDev/ATMS-in-Python",
+      "url": "https://github.com/FellnerDotDev/ATMS-in-Python",
+      "description": "Python 3, de Kleer reference. Described as 'not complete' in README. File: atms_algo.py. 2 commits, 1 star. Good orientation but not production-ready.",
+      "completeness": "Partial. Use only as reference."
+    },
+    "data_structures": {
+      "Assumption": "String or symbol identifier marking a node as assumable. Each assumption node has itself as its sole environment: label = {frozenset({a})}.",
+      "Environment": "frozenset of Assumption names. Represents a minimal consistent set of assumptions supporting a proposition.",
+      "Label": "set[frozenset] — the set of minimal environments supporting a node. Minimality invariant: no env in label is a superset of another.",
+      "NogoodDB": "list[frozenset] — list of minimal inconsistent assumption sets. When an env is a superset of any no-good, it is removed from all labels.",
+      "Node": "Object with fields: proposition (str), label (set[frozenset]), justifications (list of Justification). A Justification = (list[Node] antecedents, Node consequent)."
+    },
+    "missing_features_to_add": [
+      "depth_cap: filter out any environment E from a label where len(E) > d (depth parameter). Implement as: env_set = {e for e in env_set if len(e) <= d}",
+      "size_cap: optionally truncate total number of environments per label to avoid exponential blowup. Implement as: label = set(sorted(label, key=len)[:max_envs])",
+      "No-good pruning efficiency: NATMS iterates all nodes on NOGOOD — add indexed lookup by assumption for speed.",
+      "Incremental justification addition: existing code handles this but may need explicit test."
+    ]
+  },
+
+  "bounded_atms_algorithm": {
+    "depth_definition": "The 'depth' of an environment E is len(E) — the number of assumptions in E. A depth cap d=3 means no environment with >3 assumptions is tracked. This approximates bounded prime-implicate computation (de Kleer 1992 AAAI).",
+    "pseudocode": "def propagate_bounded(atms, justification, depth_cap, max_envs_per_label):\n    # justification: (antecedents: List[Node], consequent: Node)\n    # Step 1: Cross-product of antecedent labels\n    env_set = {frozenset()}\n    for ant in justification.antecedents:\n        env_set = {a | b for a in env_set for b in ant.label}\n    \n    # Step 2: Prune supersets within new env_set\n    env_set = minimal_subsets(env_set)\n    \n    # Step 3: Filter no-goods\n    env_set = {e for e in env_set\n               if not any(ng <= e for ng in atms.nogoods)}\n    \n    # Step 4: Depth cap (key bounded addition)\n    env_set = {e for e in env_set if len(e) <= depth_cap}\n    \n    # Step 5: Merge into node label (UPDATE)\n    new_label = merge_minimal(justification.consequent.label, env_set)\n    \n    # Step 6: Optional size cap\n    if len(new_label) > max_envs_per_label:\n        new_label = set(sorted(new_label, key=len)[:max_envs_per_label])\n    \n    if new_label != justification.consequent.label:\n        justification.consequent.label = new_label\n        # Propagate to dependent justifications\n        for dep_just in atms.justifications_with_antecedent(justification.consequent):\n            propagate_bounded(atms, dep_just, depth_cap, max_envs_per_label)\n\ndef merge_minimal(existing_label, new_envs):\n    merged = set(existing_label)\n    for e in new_envs:\n        if not any(x <= e for x in merged):  # e not subsumed\n            merged = {x for x in merged if not e <= x}  # remove supersets\n            merged.add(e)\n    return merged\n\ndef minimal_subsets(env_set):\n    result = set()\n    for e in sorted(env_set, key=len):\n        if not any(x <= e for x in result):\n            result.add(e)\n    return result",
+    "no_good_handling": "NOGOOD(E): for all nodes n, n.label = {e for e in n.label if not E <= e}. Propagate changes. Store E in atms.nogoods.",
+    "references": [
+      "de Kleer, J. (1986). An assumption-based TMS. Artificial Intelligence, 28(2), 127-162.",
+      "de Kleer, J. (1992). An improved incremental algorithm for generating prime implicates. AAAI-92, pp. 780-785.",
+      "Ruggiero-Santo/NATMS: https://github.com/Ruggiero-Santo/NATMS"
+    ]
+  },
+
+  "baseline_interfaces": {
+    "LINC": {
+      "repo_url": "https://github.com/benlipkin/linc",
+      "paper": "LINC: A Neurosymbolic Approach for Logical Reasoning (EMNLP 2023, arXiv:2310.15164)",
+      "entry_point": "accelerate launch runner.py [args]",
+      "args_file": "linc/eval/args.py",
+      "fol_prover": "Prover9 (required: Anaconda + Make + Prover9 installed)",
+      "llm_api": "OpenAI API (GPT-3.5/GPT-4). Redirect to OpenRouter by patching the OpenAI base_url to https://openrouter.ai/api/v1 and setting OPENAI_API_KEY to OpenRouter key.",
+      "custom_dataset_approach": "LINC takes premises/conclusions in natural language; parse via args.py to find the dataset loading code; custom data should be formatted as the same schema as FOLIO/ProofWriter (JSON with premises list + conclusion + label). Exact format needs args.py inspection.",
+      "k_sample_voting": "K-sample parameter likely in args.py. Not documented in README; inspect runner.py for --n_samples or similar flag.",
+      "clutrr_integration": "Kinship premises (e.g. 'Alice is Bob's mother') map to FOL directly. Each k-hop story becomes a set of FOL premises + query. Feasible to adapt.",
+      "confidence": "Medium — entry point and prover confirmed; exact custom-dataset arg format needs local code inspection."
+    },
+    "Logic_LM": {
+      "repo_url": "https://github.com/teacherpeterpan/Logic-LLM",
+      "paper": "LOGIC-LM (EMNLP Findings 2023, arXiv:2305.12295)",
+      "entry_scripts": {
+        "generation": "python models/logic_program.py --dataset_name {name} --split test --model_name {model} --api_key {key} --max_new_tokens 1024",
+        "inference": "python models/logic_inference.py --dataset_name {name} --split test --model_name {model} --api_key {key}"
+      },
+      "solver": "SMT solver (code modified from SatLM https://github.com/xiye17/sat-lm). Likely Z3-backed.",
+      "llm_backend_swap": "Modify OpenAIModel class in utils.py. Pass OpenRouter base_url and key. --model_name supports any string that the API accepts.",
+      "custom_dataset_format": "Add prompt template at ./models/prompts/{dataset_name}.txt with [[PROBLEM]] and [[QUESTION]] placeholders. Add dataset loader to match existing dataset structure in ./data/",
+      "supported_datasets_builtin": ["FOLIO", "ProntoQA", "ProofWriter", "LogicalDeduction", "AR-LSAT"],
+      "confidence": "High — entry points, solver, and LLM config confirmed from source inspection."
+    },
+    "PoT_Path_of_Thoughts": {
+      "repo_url": null,
+      "public_code": false,
+      "note": "No public GitHub repository found for arXiv:2412.17963 (Path-of-Thoughts, Zhang et al. 2024/2026). Authors did not release code as of June 2026.",
+      "paper_url": "https://arxiv.org/abs/2412.17963",
+      "reimplementation_spec": {
+        "stage_1_graph_extraction": {
+          "description": "Single LLM call: given a story, extract all (subject, relation, object) triples and identify the query entities. Output: JSON graph G = {nodes: [...], edges: [{src, rel, dst}], query: {src, dst}}.",
+          "prompt_strategy": "Use sectional markup, syntactic delimiters, predefined relation set (kinship relations), task decomposition. Templates in paper Appendix A.4-A.6.",
+          "llm_calls": 1
+        },
+        "stage_2_path_identification": {
+          "description": "Deterministic DFS over the extracted graph. Find all simple paths from query src to query dst. No LLM call.",
+          "algorithm": "DFS with visited set; return all paths as lists of edge triples.",
+          "llm_calls": 0
+        },
+        "stage_3_reasoning": {
+          "description": "For each path, make an independent LLM call (PoT-LLM variant) or run ASP/CLINGO (PoT-Symbolic). Return majority-vote or first non-None answer.",
+          "llm_calls": "1 per path (varies by story complexity)",
+          "symbolic_option": "CLINGO (Answer Set Programming) with kinship rules encoded as ASP facts"
+        },
+        "clutrr_loading": "Use HuggingFace CLUTRR/v1 test set. Paper modifies stories to remove name tagging and embed query as natural language question. 1,049 test samples (k=2-10).",
+        "performance_claim": "Up to 21.3% improvement over SotA baselines without fine-tuning."
+      },
+      "confidence": "High for reimplementation spec — paper describes method in detail. Stage 3 requires access to prompts from Appendix A.4-A.6 not fully reproduced online."
+    },
+    "ProbLog": {
+      "repo_url": "https://github.com/ML-KULeuven/problog",
+      "docs_url": "https://problog.readthedocs.io/en/latest/python.html",
+      "install": "pip install problog",
+      "python_api_snippet": "from problog.program import PrologString\nfrom problog import get_evaluatable\n\n# Build model from dict of {fact_string: probability}\ndef run_problog_query(prob_facts: dict, rules: list[str], query: str) -> dict:\n    lines = []\n    for fact, prob in prob_facts.items():\n        lines.append(f'{prob}::{fact}.')\n    lines.extend(rules)\n    lines.append(f'query({query}).')\n    model_str = '\\n'.join(lines)\n    result = get_evaluatable().create_from(PrologString(model_str)).evaluate()\n    return {str(k): float(v) for k, v in result.items()}\n\n# Example:\n# prob_facts = {'parent(tom, bob)': 0.8, 'parent(bob, ann)': 0.9}\n# rules = ['ancestor(X,Y) :- parent(X,Y).', 'ancestor(X,Y) :- parent(X,Z), ancestor(Z,Y).']\n# result = run_problog_query(prob_facts, rules, 'ancestor(tom,ann)')\n# => {'ancestor(tom,ann)': 0.72}",
+      "key_syntax": "Probabilistic fact: '0.8::parent(tom, bob).' — use p::fact. notation. Rules: standard Prolog. Query: query(term).",
+      "platform_note": "get_evaluatable() auto-selects d-DNNF or SDD based on OS. Works on Linux/Mac/Windows.",
+      "confidence": "Very high — official docs and PyPI package confirmed."
+    }
+  },
+
+  "openrouter_models": {
+    "model_table": [
+      {
+        "model_id": "deepseek/deepseek-v4-flash",
+        "input_price_per_M": 0.0983,
+        "output_price_per_M": 0.1966,
+        "context_window_k": 1000,
+        "json_support": "Yes (tool use / structured output via OpenAI-compatible API)",
+        "notes": "MoE 284B total / 13B activated. Released 2026-04-24. Best value for L1."
+      },
+      {
+        "model_id": "deepseek/deepseek-v3.2",
+        "input_price_per_M": 0.2288,
+        "output_price_per_M": 0.3432,
+        "context_window_k": 131,
+        "json_support": "Yes",
+        "notes": "Strong reasoning + tool use. Good for L2 assumption proposal."
+      },
+      {
+        "model_id": "meta-llama/llama-3.3-70b-instruct",
+        "input_price_per_M": 0.10,
+        "output_price_per_M": 0.32,
+        "context_window_k": 128,
+        "json_support": "Yes (function calling)",
+        "notes": "Free tier available (rate limited). Good fallback."
+      },
+      {
+        "model_id": "google/gemini-2.5-flash",
+        "input_price_per_M": 0.30,
+        "output_price_per_M": 2.50,
+        "context_window_k": 1000,
+        "json_support": "Yes",
+        "notes": "Strong reasoning but output is expensive at $2.50/M. Avoid for high-volume."
+      },
+      {
+        "model_id": "google/gemma-4-26b-a4b-it:free",
+        "input_price_per_M": 0.0,
+        "output_price_per_M": 0.0,
+        "context_window_k": 128,
+        "json_support": "Partial",
+        "notes": "Free but rate limited. Only for testing."
+      }
+    ],
+    "recommended_pairing": {
+      "L1_grounding_json_extraction": {
+        "model_id": "deepseek/deepseek-v4-flash",
+        "rationale": "Cheapest reliable model with JSON/structured output. At $0.0983/$0.1966 per M, adequate for span-to-atom extraction."
+      },
+      "L2_assumption_proposal": {
+        "model_id": "deepseek/deepseek-v3.2",
+        "rationale": "Stronger reasoning, controllable reasoning behavior. At $0.2288/$0.3432 per M, affordable for ~400 calls."
+      }
+    },
+    "budget_estimate": {
+      "scope": "400 documents (200 CLUTRR + 100 bAbI + 100 custom), 2 L1 calls + 1 L2 call per doc",
+      "L1_estimate": {
+        "calls": 800,
+        "avg_input_tokens": 500,
+        "avg_output_tokens": 300,
+        "cost_usd": 0.087,
+        "formula": "800 * (500*0.0983 + 300*0.1966) / 1e6"
+      },
+      "L2_estimate": {
+        "calls": 400,
+        "avg_input_tokens": 800,
+        "avg_output_tokens": 400,
+        "cost_usd": 0.128,
+        "formula": "400 * (800*0.2288 + 400*0.3432) / 1e6"
+      },
+      "baseline_overhead_3x": 0.645,
+      "total_estimate_usd": 0.86,
+      "budget_headroom": "$10 budget → ~11.6x headroom. Comfortable for 3 reruns, ablations, and debug iterations.",
+      "note": "Even running all 4 baselines with the same compute budget stays well under $10."
+    }
+  },
+
+  "clutrr_splits": {
+    "paper_citation": "Sinha et al. (2019). CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text. EMNLP 2019. arXiv:1908.06177.",
+    "per_hop_counts": {
+      "source": "Reported in graph-based synthetic data augmentation study (arXiv:2409.12437 Table 2); consistent with PoT paper (1,049 test samples k=2-10)",
+      "test_set": {
+        "k2": 114,
+        "k3": 229,
+        "k4": 219,
+        "k5": 308,
+        "k6": 178,
+        "k7": 246,
+        "k8": 228,
+        "k9": 172,
+        "k10": 163,
+        "total": 1857
+      },
+      "train_set": {
+        "k2": 333,
+        "k3": 352,
+        "k4": 317,
+        "k5_plus": 0,
+        "total": 1002,
+        "note": "Standard split trains on k=2,3,4 only; tests on k=2-10 for generalization."
+      }
+    },
+    "huggingface_load": {
+      "dataset_name": "CLUTRR/v1",
+      "configurations": {
+        "gen_train23_test2to10": "Train k={2,3}, test k=2-10. Standard generalization task.",
+        "gen_train234_test2to10": "Train k={2,3,4}, test k=2-10. Easier training regime.",
+        "rob_train_clean_23_test_all_23": "Robustness variant with clean training.",
+        "rob_train_sup_23_test_all_23": "Supporting noise facts robustness.",
+        "rob_train_irr_23_test_all_23": "Irrelevant noise facts robustness.",
+        "rob_train_disc_23_test_all_23": "Disconnected noise facts robustness."
+      },
+      "recommended_config": "gen_train23_test2to10",
+      "load_call": "from datasets import load_dataset\nds = load_dataset('CLUTRR/v1', 'gen_train23_test2to10', trust_remote_code=True)\ntest = ds['test']  # 1857 examples, k=2-10",
+      "alternative_data_id": "data_089907f8 (pre-generated Google Drive variant used in original paper; train k=2,3, test k=2-10)"
+    },
+    "stratified_subsample_200": {
+      "method": "Equal allocation across 9 strata (k=2 to k=10), 22 per stratum = 198 total",
+      "strata": [
+        {"k": 2,  "available": 114, "sample": 22, "feasible": true},
+        {"k": 3,  "available": 229, "sample": 22, "feasible": true},
+        {"k": 4,  "available": 219, "sample": 22, "feasible": true},
+        {"k": 5,  "available": 308, "sample": 22, "feasible": true},
+        {"k": 6,  "available": 178, "sample": 22, "feasible": true},
+        {"k": 7,  "available": 246, "sample": 22, "feasible": true},
+        {"k": 8,  "available": 228, "sample": 22, "feasible": true},
+        {"k": 9,  "available": 172, "sample": 22, "feasible": true},
+        {"k": 10, "available": 163, "sample": 22, "feasible": true}
+      ],
+      "total_sample": 198,
+      "all_strata_feasible": true,
+      "minimum_available": 114,
+      "note": "All strata have at least 114 instances. No stratum exhaustion. Use random.seed(42) for reproducibility.",
+      "code_snippet": "import random\nfrom datasets import load_dataset\nfrom collections import defaultdict\n\nrandom.seed(42)\nds = load_dataset('CLUTRR/v1', 'gen_train23_test2to10', trust_remote_code=True)['test']\n\n# Group by hop count\nbuckets = defaultdict(list)\nfor ex in ds:\n    k = ex['num_hops']  # or len(ex['relation_list']) depending on field name\n    buckets[k].append(ex)\n\n# Sample 22 per stratum\nsubsample = []\nfor k in range(2, 11):\n    stratum = buckets.get(k, [])\n    n = min(22, len(stratum))\n    subsample.extend(random.sample(stratum, n))\nprint(f'Total subsample: {len(subsample)}')"
+    }
+  },
+
+  "answer": "## Phase 1: Python ATMS Implementations\n\nTwo Python ATMS implementations exist on GitHub. The best is **Ruggiero-Santo/NATMS** [2] — a negation-extended ATMS based on de Kleer's general labeling algorithm. It implements UPDATE, WEAVE, PROPAGATE, and NOGOOD functions. Labels are `set[frozenset]`; environments are `frozenset` of assumption names [2]. The secondary option is **FellnerDotDev/ATMS-in-Python** [1], which its README explicitly describes as incomplete.\n\nNeither repo implements a **depth cap** (filter environments where `len(E) > d`) or a **size cap** on label cardinality — both must be added [2]. De Kleer (1992) [17] described incremental prime-implicate generation for ATMS but no simple bounded variant; the natural approximation is depth(E) = len(E). The bounded label-propagation pseudocode:\n\n```\nfor each justification J:\n  env_set = cross_product(labels of J.antecedents)\n  env_set = prune_supersets(env_set)\n  env_set = filter_nogoods(env_set, nogood_db)   # remove supersets of any no-good\n  env_set = {e for e in env_set if len(e) <= d}  # depth cap\n  node.label = merge_minimal(node.label, env_set)\n```\n\nData structures: Environment = frozenset; Label = set[frozenset]; NogoodDB = list[frozenset] [2].\n\n## Phase 2: Baseline Interfaces\n\n**LINC** [3] (EMNLP 2023): Entry point `accelerate launch runner.py`; FOL prover is Prover9 [3]. Config in `linc/eval/args.py`. LLM API redirectable to OpenRouter by setting `OPENAI_BASE_URL=https://openrouter.ai/api/v1`. Custom datasets require format matching FOLIO/ProofWriter JSON schema [3].\n\n**Logic-LM** [4] (EMNLP 2023): Two-step pipeline — `models/logic_program.py` (generation) then `models/logic_inference.py` (inference) [4]. Symbolic solver is SMT/Z3-based (code from SatLM). LLM swappable by modifying `OpenAIModel` class in `utils.py`. Custom datasets: add `./models/prompts/{dataset_name}.txt` with `[[PROBLEM]]`/`[[QUESTION]]` placeholders [4].\n\n**Path-of-Thoughts** [5] (arXiv:2412.17963): No public code released as of June 2026 [5]. Must reimplement from paper [6]. Three stages: (1) single LLM call to extract entity-relation triples and build a graph; (2) deterministic DFS to find all source-to-target paths; (3) per-path LLM inference or ASP/CLINGO symbolic reasoning [6]. Paper uses CLUTRR test set modified to 1,049 samples (k=2–10); achieves up to 21.3% improvement over SOTA [6].\n\n**ProbLog** [7] (ML-KULeuven): `pip install problog`. Minimal Python API [8]:\n```python\nfrom problog.program import PrologString\nfrom problog import get_evaluatable\nmodel = \"0.8::parent(tom,bob). 0.9::parent(bob,ann). ancestor(X,Y):-parent(X,Y). query(ancestor(tom,ann)).\"\nresult = get_evaluatable().create_from(PrologString(model)).evaluate()\n# => {ancestor(tom,ann): 0.72}\n```\nProbabilistic facts use `p::fact.` syntax; `query(term).` marks evaluation targets [8].\n\n## Phase 3: OpenRouter Models and Pricing\n\nConfirmed June 2026 pricing [9–12]: `deepseek/deepseek-v4-flash` [9] costs $0.0983/$0.1966 per million tokens with 1M context. `deepseek/deepseek-v3.2` [10] costs $0.2288/$0.3432 per million tokens with 131K context. `google/gemini-2.5-flash` [11] costs $0.30/$2.50 per million (expensive output). `meta-llama/llama-3.3-70b-instruct` [12] costs $0.10/$0.32 per million; free tier available. Free-tier models (google/gemma-4-26b-a4b-it:free etc.) are rate-limited [18].\n\nRecommended pairing: L1 JSON extraction → `deepseek/deepseek-v4-flash` [9]; L2 assumption proposal → `deepseek/deepseek-v3.2` [10].\n\nBudget estimate: 400 docs × 2 L1 calls = 800 calls at $0.087 total; 400 L2 calls at $0.128 total; ×3 baseline overhead ≈ $0.86 total [9, 10, 12]. With a $10 budget this leaves 11.6× headroom.\n\n## Phase 4: CLUTRR Dataset\n\nPer-hop test instance counts confirmed from two sources [14, 16]: k=2(114), k=3(229), k=4(219), k=5(308), k=6(178), k=7(246), k=8(228), k=9(172), k=10(163) — total 1,857 test instances [16]. Training covers k=2,3 (or k=2,3,4); test always spans k=2–10 for generalization evaluation [14]. The PoT paper uses 1,049 of these test samples [6].\n\nHuggingFace load [15]: `load_dataset('CLUTRR/v1', 'gen_train23_test2to10', trust_remote_code=True)['test']`. Six total configurations available [15].\n\nStratified 200-instance subsample [16]: 9 strata (k=2–10) × 22 per stratum = 198 instances. All strata are feasible — minimum available is 114 instances at k=2 [16]. Use `random.seed(42)` for reproducibility.",
+
+  "follow_up_questions": [
+    "PoT reimplementation: The paper's Appendix A.4-A.6 contains the exact LLM prompts for graph extraction and per-path reasoning. These are not reproduced in the arXiv HTML. Can the executor use a generic extraction prompt or should we fetch the ar5iv version with appendix content?",
+    "LINC custom dataset format: The exact JSON schema for passing custom CLUTRR instances to LINC requires inspecting linc/eval/args.py locally. What fallback should the executor use if LINC is not easily adaptable to CLUTRR?",
+    "OpenRouter gemini-2.5-flash-lite pricing: The costgoat.com table did not show this model separately. Is google/gemini-2.5-flash-lite available on OpenRouter, and at what price, as a potential cheaper L2 option than gemini-2.5-flash?"
+  ],
+
+  "sources": [
+    {"index": 1, "url": "https://github.com/FellnerDotDev/ATMS-in-Python", "title": "FellnerDotDev/ATMS-in-Python", "summary": "Python 3 ATMS implementation by de Kleer reference; described as incomplete"},
+    {"index": 2, "url": "https://github.com/Ruggiero-Santo/NATMS", "title": "Ruggiero-Santo/NATMS", "summary": "Python negation-ATMS; implements UPDATE, WEAVE, PROPAGATE, NOGOOD; labels as set[frozenset]"},
+    {"index": 3, "url": "https://github.com/benlipkin/linc", "title": "benlipkin/linc - LINC EMNLP 2023", "summary": "LINC repo; entry point runner.py; Prover9 FOL prover; eval/args.py for CLI options"},
+    {"index": 4, "url": "https://github.com/teacherpeterpan/Logic-LLM", "title": "teacherpeterpan/Logic-LLM", "summary": "Logic-LM repo; logic_program.py + logic_inference.py; SMT solver from SatLM; OpenAI API via utils.py"},
+    {"index": 5, "url": "https://arxiv.org/abs/2412.17963", "title": "Path-of-Thoughts: Extracting and Following Paths (arXiv:2412.17963)", "summary": "PoT paper; 3-stage pipeline; no public code released; uses CLUTRR 1,049 test samples"},
+    {"index": 6, "url": "https://arxiv.org/html/2412.17963", "title": "PoT paper HTML version", "summary": "Stage details: graph extraction (1 LLM call), DFS path finding, per-path reasoning (LLM or ASP/CLINGO)"},
+    {"index": 7, "url": "https://github.com/ML-KULeuven/problog", "title": "ML-KULeuven/problog", "summary": "ProbLog GitHub; pip install problog; Python API via PrologString + get_evaluatable"},
+    {"index": 8, "url": "https://problog.readthedocs.io/en/latest/python.html", "title": "ProbLog Python API Documentation", "summary": "Official docs; minimal example: get_evaluatable().create_from(PrologString(model)).evaluate()"},
+    {"index": 9, "url": "https://openrouter.ai/deepseek/deepseek-v4-flash", "title": "OpenRouter: deepseek/deepseek-v4-flash", "summary": "$0.0983/$0.1966 per M tokens; 1M context; MoE 284B/13B; released 2026-04-24"},
+    {"index": 10, "url": "https://openrouter.ai/deepseek/deepseek-v3.2", "title": "OpenRouter: deepseek/deepseek-v3.2", "summary": "$0.2288/$0.3432 per M tokens; 131K context; strong reasoning + tool use"},
+    {"index": 11, "url": "https://openrouter.ai/google/gemini-2.5-flash", "title": "OpenRouter: google/gemini-2.5-flash", "summary": "$0.30/$2.50 per M tokens; 1M context; built-in thinking"},
+    {"index": 12, "url": "https://costgoat.com/pricing/openrouter", "title": "CostGoat OpenRouter Pricing Guide (Jun 2026)", "summary": "Pricing table: deepseek-v4-flash $0.10/$0.20, llama-3.3-70b $0.10/$0.32"},
+    {"index": 13, "url": "https://github.com/facebookresearch/clutrr", "title": "facebookresearch/clutrr", "summary": "CLUTRR official repo; kinship benchmark; 22 relations; hop-based difficulty k=2-10"},
+    {"index": 14, "url": "https://arxiv.org/pdf/1908.06177", "title": "CLUTRR paper (arXiv:1908.06177)", "summary": "Test on k=2-10; train k=2,3 or k=2,3,4; paper confirms generalization setting"},
+    {"index": 15, "url": "https://github.com/kliang5/CLUTRR_huggingface_dataset", "title": "kliang5/CLUTRR_huggingface_dataset", "summary": "14 configurations; gen_train23_test2to10 and gen_train234_test2to10; 8-12k train, 400-1100 test"},
+    {"index": 16, "url": "https://arxiv.org/pdf/2409.12437", "title": "Graph-based Synthetic Data Augmentation for CLUTRR (arXiv:2409.12437)", "summary": "Table 2: per-hop test counts k=2(114), k=3(229), k=4(219), k=5(308), k=6(178), k=7(246), k=8(228), k=9(172), k=10(163)"},
+    {"index": 17, "url": "https://link.springer.com/chapter/10.1007/978-3-642-60211-5_9", "title": "de Kleer 1992: Improved Incremental Algorithm for Prime Implicates", "summary": "Incremental prime implicate generation for ATMS; NP-complete but exploits previous computation"},
+    {"index": 18, "url": "https://openrouter.ai/models", "title": "OpenRouter Models Catalog", "summary": "315+ models; free tier available; structured output support in supported_parameters field"}
+  ]
+}

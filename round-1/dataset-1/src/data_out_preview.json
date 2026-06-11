@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "description": "Unified ATMS benchmark: CLUTRR kinship + bAbI tasks 2/3/15 + RuleTaker + ProofWriter",
+    "total_examples": 479,
+    "sources": {
+      "CLUTRR": 180,
+      "ProofWriter": 100,
+      "RuleTaker": 100,
+      "bAbI_qa15": 33,
+      "bAbI_qa2": 33,
+      "bAbI_qa3": 33
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "CLUTRR",
+      "examples": [
+        {
+          "input": "Context: [Tony] woke up on his 7th birthday to a surprise present sitting on his night stand. It was from his Grandma [Ashley], and [Tony]'s sister [Charlotte] looked on excitedly as he opened his present.\n\nQuestion: What is the relationship between Ashley and Charlotte?",
+          "output": "granddaughter",
+          "metadata_id": "CLUTRR_test_16b898d1-a77e-4e05-86d6-b6e614b030ab",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Emily] and her granddaughter [Ashley] went to the mall [Michael] likes to visit his sister. Her name is [Emily].\n\nQuestion: What is the relationship between Ashley and Michael?",
+          "output": "grandson",
+          "metadata_id": "CLUTRR_test_0f226f4d-dc2d-4051-a875-9e555ecf0f22",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Michael] woke up on his 7th birthday to a surprise present sitting on his night stand. It was from his Grandma [Ashley], and [Michael]'s sister [Emily] looked on excitedly as he opened his present.\n\nQuestion: What is the relationship between Ashley and Emily?",
+          "output": "granddaughter",
+          "metadata_id": "CLUTRR_test_c5e1a350-9492-4d24-a808-532f35e22d52",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Jacob] is [Lorraine]'s brand new Baby brother. [Clarence] was excited to have a new Grandchild beside [Lorraine]\n\nQuestion: What is the relationship between Clarence and Jacob?",
+          "output": "grandson",
+          "metadata_id": "CLUTRR_test_4da7525b-4b04-459e-96fd-43aec1c4fdb0",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Belva]'s grandfather, [Clarence], baked her a beautiful cake for her 9th birthday. [Belva] went to her brother [Nicolas]'s birthday party\n\nQuestion: What is the relationship between Clarence and Nicolas?",
+          "output": "grandson",
+          "metadata_id": "CLUTRR_test_464afcd8-9ca3-4d45-b6fd-942afcd0568a",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Clarence] enjoys picking flowers with his son's daughter. Her name is [Mary]. [Mary] and her brother [Michael] went to see a movie.\n\nQuestion: What is the relationship between Clarence and Michael?",
+          "output": "grandson",
+          "metadata_id": "CLUTRR_test_83b85772-1dda-47c2-9c87-072dd21d642b",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Emily]'s grandfather [Clarence] recently passed away. She is taking a leave of absence. [Emily] went to her brother [Glen]'s birthday party\n\nQuestion: What is the relationship between Clarence and Glen?",
+          "output": "grandson",
+          "metadata_id": "CLUTRR_test_3dfca4ba-f6e5-449c-8a24-739e7c746559",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Timothy] took his sister [April] out to lunch after learning that she got accepted into her first choice for university. [Ashley] loves making hot cocoa for her son's daughter. Her name is [April].\n\nQuestion: What is the relationship between Ashley and Timothy?",
+          "output": "grandson",
+          "metadata_id": "CLUTRR_test_e69c7dc1-4485-4d93-985f-aff33a9c8b30",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Nicolas] went to the game with his sister [June]. [Clarence] went to the museum with his grandson [Nicolas].\n\nQuestion: What is the relationship between Clarence and June?",
+          "output": "granddaughter",
+          "metadata_id": "CLUTRR_test_25891fe4-fe88-437b-a9fe-6f70def094ae",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        },
+        {
+          "input": "Context: [Ashley] and her grandson [Jacob] went to the store to buy a birthday present for [Jacob]'s sister [Heidi].\n\nQuestion: What is the relationship between Ashley and Heidi?",
+          "output": "granddaughter",
+          "metadata_id": "CLUTRR_test_f8379fd1-245d-4a24-9df6-ccda35a6417e",
+          "metadata_domain": "kinship",
+          "metadata_hop_count": 2,
+          "metadata_source_dataset": "CLUTRR",
+          "metadata_split": "test"
+        }
+      ]
+    }
+  ]
+}
