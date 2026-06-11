@@ -13,7 +13,7 @@
 
 </div>
 
-> **Hypothesis** — In a neuro-symbolic pipeline that translates a short document into first-order logic and reasons with a logic interpreter, the dominant mechanism by which a bounded Assumption-Based Truth Maintenance System (ATMS) reduces hallucination is BINARY ABSTENTION grounded in the empty-environment criterion — not fine-grained graduated scoring.
+> **TL;DR** — We present the Empty-Environment Test, a two-layer neuro-symbolic pipeline that imports de Kleer's bounded ATMS to separate document-grounding error (L1) from formalization-choice error (L2) in text-to-logic reasoning. The corrected evaluation shows assumption-load is a strong error predictor (Spearman ρ=0.629, p<0.001, AUROC=0.777). At 22.9% coverage, the method achieves 90.9% accuracy versus 72.7% for chain-of-thought and LINC at matched coverage. The primary mechanism is binary abstention: when no bounded ATMS derivation is found, the system abstains rather than guessing. This makes the method well-suited to precision-critical settings but poorly suited to coverage-critical ones (77.1% abstain rate).
 
 <details>
 <summary>Full hypothesis</summary>
